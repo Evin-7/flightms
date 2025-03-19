@@ -1,5 +1,5 @@
 <template>
-  <div class="w-64 h-screen bg-gray-900 text-white p-4 shadow-lg">
+  <div class="h-full p-4">
     <ul class="space-y-4">
       <li>
         <router-link
