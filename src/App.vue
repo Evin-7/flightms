@@ -1,11 +1,9 @@
 <template>
   <div class="h-screen">
-    <!-- Desktop Layout -->
     <div class="hidden md:flex h-full">
-      <!-- Sidebar - 20% width -->
-      <div class="w-1/5 text-flightmspurple">
+      <div class="w-1/5 text-flightmspurple fixed h-full">
         <div
-          class="flex flex-wrap flex-row justify-center w-[80%] pt-[20px] items-center space-x-2"
+          class="flex flex-wrap flex-row justify-center w-[80%] pb-[50px] pt-[20px] items-center space-x-2"
         >
           <img :src="airplaneIcon" alt="Airplane Icon" class="w-8 h-8" />
           <span
@@ -17,19 +15,17 @@
         <Sidebar />
       </div>
 
-      <!-- Main Content - 80% width -->
-      <div class="w-4/5 bg-gray-100 flex flex-col">
-        <Navbar />
-        <div class="p-6 flex-1">
+      <div class="w-4/5 ml-[20%] bg-gray-100 flex flex-col">
+        <Navbar class="sticky top-0 z-10" />
+        <div class="p-6 flex-1 overflow-y-auto">
           <router-view />
         </div>
       </div>
     </div>
 
-    <!-- Mobile Layout -->
     <div class="block md:hidden">
-      <Navbar />
-      <div class="p-6">
+      <Navbar class="sticky top-0 z-10" />
+      <div class="p-6 overflow-y-auto h-[calc(100vh-60px)]">
         <router-view />
       </div>
     </div>
@@ -44,7 +40,7 @@ import airplaneIcon from "../src/assets/icons/flightPurple.png";
 export default {
   components: { Navbar, Sidebar },
   setup() {
-    return { airplaneIcon }; // ✅ Correct placement inside setup()
+    return { airplaneIcon };
   },
 };
 </script>

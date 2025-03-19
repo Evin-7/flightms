@@ -6,15 +6,15 @@
           to="/"
           class="block px-4 py-2 rounded hover:bg-gray-700 transition"
         >
-          🏠 Home
+          🏠 Dashboard
         </router-link>
       </li>
       <li>
         <router-link
-          to="/about"
+          to="/flights"
           class="block px-4 py-2 rounded hover:bg-gray-700 transition"
         >
-          ℹ️ About
+          ℹ️ Flights
         </router-link>
       </li>
     </ul>

@@ -57,7 +57,7 @@
       <!-- Desktop Links -->
       <div class="hidden md:flex space-x-6">
         <router-link to="/" class="hover:text-gray-400">🏠 Home</router-link>
-        <router-link to="/about" class="hover:text-gray-400"
+        <router-link to="/flights" class="hover:text-gray-400"
           >ℹ️ About</router-link
         >
       </div>
@@ -71,7 +71,7 @@
       <router-link to="/" class="block text-center py-2" @click="closeMenu"
         >🏠 Home</router-link
       >
-      <router-link to="/about" class="block text-center py-2" @click="closeMenu"
+      <router-link to="/flights" class="block text-center py-2" @click="closeMenu"
         >ℹ️ About</router-link
       >
     </div>
