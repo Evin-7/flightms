@@ -20,47 +20,59 @@
           @click="toggleMenu"
           class="text-flightmspurple focus:outline-none"
         >
-          <svg
-            v-if="!isOpen"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            />
-          </svg>
-
-          <svg
-            v-else
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M6 18L18 6M6 6l12 12"
-            />
-          </svg>
+          <img v-if="!isOpen" :src="menuIcon" alt="Menu Icon" class="w-6 h-6" />
+          <img v-else :src="closeIcon" alt="Close Icon" class="w-6 h-6" />
         </button>
       </div>
 
       <!-- Desktop Links -->
-      <div class="hidden md:flex space-x-6">
-        <router-link to="/" class="hover:text-gray-400">🏠 Home</router-link>
-        <router-link to="/flights" class="hover:text-gray-400"
-          >ℹ️ About</router-link
+      <div class="hidden md:flex justify-between items-center space-x-4 w-full">
+        <span class="font-medium">Dashboard</span>
+
+        <div
+          class="flex w-[40%] items-center bg-gray-200 rounded-[25px] px-3 py-2"
         >
+          <img
+            :src="searchIcon"
+            alt="Search Icon"
+            class="w-5 h-5 text-gray-500"
+          />
+          <input
+            type="text"
+            placeholder="Search..."
+            class="w-full bg-gray-200 outline-none pl-2"
+          />
+        </div>
+
+        <div class="flex items-center space-x-2">
+          <div
+            class="bg-gray-200 p-2 rounded-full flex items-center justify-center"
+          >
+            <img :src="bellBlack" alt="Bell Icon" class="w-5 h-5" />
+          </div>
+          <div class="pl-[20px]">
+            <img
+              :src="Fernando"
+              alt="User Icon"
+              class="w-[35px] h-[35px] object-contain"
+            />
+          </div>
+
+          <div class="flex flex-col leading-tight">
+            <span class="font-medium">Fernando J</span>
+            <span class="text-sm text-gray-500">Admin</span>
+          </div>
+          <div class="flex leading-tight pr-[10px]">
+            <img
+              :src="downBlack"
+              alt="Dropdown Icon"
+              class="w-[15px] h-[15px] object-contain"
+            />
+          </div>
+        </div>
       </div>
+
+      <!-- Search Bar -->
     </div>
 
     <!-- Mobile Collapsible Menu -->
@@ -68,36 +80,64 @@
       v-if="isOpen"
       class="md:hidden space-y-4 py-4 border-t border-gray-700"
     >
-      <router-link to="/" class="block text-center py-2" @click="closeMenu"
-        >🏠 Home</router-link
-      >
       <router-link
-        to="/flights"
-        class="block text-center py-2"
+        v-for="link in links"
+        :key="link.path"
+        :to="link.path"
+        class="flex items-center justify-start space-x-2 py-2 px-4 rounded bg-[#250c39] text-white"
         @click="closeMenu"
-        >ℹ️ About</router-link
       >
+        <img
+          v-if="link.iconType === 'dynamic'"
+          :src="link.activeIcon"
+          :alt="`${link.label} Icon`"
+          class="w-5 h-5"
+        />
+        <span>{{ link.label }}</span>
+      </router-link>
     </div>
   </nav>
 </template>
 
-<script>
+<script setup>
 import { ref } from "vue";
 import airplaneIcon from "../../src/assets/icons/flightPurple.png";
+import searchIcon from "../../src/assets/icons/searchViolet.png";
+import closeIcon from "../../src/assets/icons/closeViolet.png";
+import menuIcon from "../../src/assets/icons/menuViolet.png";
+import dashboardWhite from "../../src/assets/icons/dashboardWhite.png";
+import dashboardBlack from "../../src/assets/icons/dashboardBlack.png";
+import flightWhite from "../../src/assets/icons/flightWhite.png";
+import flightBlack from "../../src/assets/icons/flightBlack.png";
+import bellBlack from "../../src/assets/icons/bellBlack.png";
+import downBlack from "../../src/assets/icons/downBlack.png";
 
-export default {
-  setup() {
-    const isOpen = ref(false);
+import Fernando from "../../src/assets/images/Fernando.jpg";
 
-    const toggleMenu = () => {
-      isOpen.value = !isOpen.value;
-    };
+const isOpen = ref(false);
 
-    const closeMenu = () => {
-      isOpen.value = false;
-    };
-
-    return { isOpen, toggleMenu, closeMenu, airplaneIcon };
-  },
+const toggleMenu = () => {
+  isOpen.value = !isOpen.value;
 };
+
+const closeMenu = () => {
+  isOpen.value = false;
+};
+
+const links = [
+  {
+    path: "/",
+    label: "Dashboard",
+    iconType: "dynamic",
+    activeIcon: dashboardWhite,
+    inactiveIcon: dashboardBlack,
+  },
+  {
+    path: "/flights",
+    label: "Flights",
+    iconType: "dynamic",
+    activeIcon: flightWhite,
+    inactiveIcon: flightBlack,
+  },
+];
 </script>
