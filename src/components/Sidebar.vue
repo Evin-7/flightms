@@ -4,7 +4,7 @@
       <li v-for="link in links" :key="link.path">
         <router-link
           :to="link.path"
-          class="flex items-center space-x-4 px-[20px] py-4 rounded-[12px] transition"
+          class="flex items-center space-x-4 px-[20px] py-3 rounded-[12px] transition"
           :class="{ 'bg-[#250c39] text-white': $route.path === link.path }"
         >
           <img
