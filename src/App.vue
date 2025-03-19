@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen">
+  <div class="h-screen font-poppins">
     <div class="hidden md:flex h-full">
       <div class="w-1/5 text-flightmspurple fixed h-full">
         <div

@@ -27,7 +27,9 @@
 
       <!-- Desktop Links -->
       <div class="hidden md:flex justify-between items-center space-x-4 w-full">
-        <span class="font-medium">Dashboard</span>
+        <span class="font-medium text-2xl text-flightmsdarkpurple">
+          Dashboard</span
+        >
 
         <div
           class="flex w-[40%] items-center bg-gray-200 rounded-[25px] px-3 py-2"
@@ -59,8 +61,8 @@
           </div>
 
           <div class="flex flex-col leading-tight">
-            <span class="font-medium">Fernando J</span>
-            <span class="text-sm text-gray-500">Admin</span>
+            <span class="font-medium text-flightmsdarkpurple">Fernando J</span>
+            <span class="text-sm font-light text-gray-500">Admin</span>
           </div>
           <div class="flex leading-tight pr-[10px]">
             <img
@@ -123,6 +125,8 @@ import helpDeskBlack from "../assets/icons/helpDeskBlack.png";
 import settingsWhite from "../assets/icons/settingsWhite.png";
 import settingsBlack from "../assets/icons/settingsBlack.png";
 import barChartWhite from "../assets/icons/barChartWhite.png";
+import barChartBlack from "../assets/icons/barChartBlack.png";
+
 import megaPhoneWhite from "../assets/icons/megaPhoneWhite.png";
 import megaPhoneBlack from "../assets/icons/megaPhoneBlack.png";
 import dollarWhite from "../assets/icons/dollarWhite.png";
