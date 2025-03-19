@@ -3,7 +3,7 @@
     <div class="hidden md:flex h-full">
       <div class="w-1/5 text-flightmspurple fixed h-full">
         <div
-          class="flex flex-wrap flex-row justify-center w-[80%] pb-[50px] pt-[20px] items-center space-x-2"
+          class="flex flex-wrap flex-row justify-center w-[80%] pb-[30px] pt-[20px] items-center space-x-2"
         >
           <img :src="airplaneIcon" alt="Airplane Icon" class="w-8 h-8" />
           <span
@@ -36,6 +36,8 @@
 import Navbar from "./components/Navbar.vue";
 import Sidebar from "./components/Sidebar.vue";
 import airplaneIcon from "../src/assets/icons/flightPurple.png";
+import { computed } from "vue";
+import { useRoute } from "vue-router";
 
 export default {
   components: { Navbar, Sidebar },

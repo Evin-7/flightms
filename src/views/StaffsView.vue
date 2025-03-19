@@ -1,5 +1,5 @@
 <template>
   <div>
-    <span> flights view </span>
+    <span> staffs view </span>
   </div>
 </template>

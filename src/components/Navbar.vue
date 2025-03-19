@@ -71,7 +71,10 @@
       <router-link to="/" class="block text-center py-2" @click="closeMenu"
         >🏠 Home</router-link
       >
-      <router-link to="/flights" class="block text-center py-2" @click="closeMenu"
+      <router-link
+        to="/flights"
+        class="block text-center py-2"
+        @click="closeMenu"
         >ℹ️ About</router-link
       >
     </div>

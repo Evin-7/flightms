@@ -1,6 +1,5 @@
 <template>
   <div>
-    <h1>Home Page</h1>
-    <p>Welcome to your new Vue + Vite app!</p>
+    <span> home view </span>
   </div>
 </template>

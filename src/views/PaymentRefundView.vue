@@ -1,5 +1,5 @@
 <template>
   <div>
-    <span> flights view </span>
+    <span>payment refund view</span>
   </div>
 </template>
