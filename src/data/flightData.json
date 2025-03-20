@@ -1,0 +1,30 @@
+[
+  {
+    "flightNumber": "AA123",
+    "status": "On Time",
+    "departure": "2024-08-01T10:30:00",
+    "arrival": "2024-08-01T14:00:00",
+    "gate": "A12"
+  },
+  {
+    "flightNumber": "BA456",
+    "status": "Delayed",
+    "departure": "2024-08-01T12:00:00",
+    "arrival": "2024-08-01T15:30:00",
+    "gate": "B5"
+  },
+  {
+    "flightNumber": "UA789",
+    "status": "On Time",
+    "departure": "2024-08-01T14:45:00",
+    "arrival": "2024-08-01T18:15:00",
+    "gate": "C3"
+  },
+  {
+    "flightNumber": "DL987",
+    "status": "Cancelled",
+    "departure": "2024-08-01T09:15:00",
+    "arrival": "2024-08-01T11:45:00",
+    "gate": "D8"
+  }
+]

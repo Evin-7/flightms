@@ -1,0 +1,14 @@
+{
+  "sales": {
+    "amount": 15230
+  },
+  "scheduledFlights": {
+    "count": 24
+  },
+  "activeFlights": {
+    "count": 12
+  },
+  "totalBookings": {
+    "count": 340
+  }
+}
