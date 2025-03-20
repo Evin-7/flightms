@@ -10,5 +10,10 @@
   },
   "totalBookings": {
     "count": 340
+  },
+  "flightInformation": {
+    "enroute": 8,
+    "taxi": 4,
+    "parked": 6
   }
 }

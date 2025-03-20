@@ -1,5 +1,7 @@
 <template>
-  <div class="grid grid-cols-4 gap-4">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
+  >
     <div
       v-for="(card, index) in cards"
       :key="index"
@@ -30,7 +32,7 @@
       <!-- Title & Value in Bottom-Left -->
       <div class="absolute bottom-2 left-4 text-left">
         <p class="text-lg font-regular pb-[5px] text-white">{{ card.title }}</p>
-        <p class="text-2xl font-semibold text-white">{{ card.value }}</p>
+        <p class="text-2xl font-medium text-white">{{ card.value }}</p>
       </div>
 
       <!-- Circle Designs -->
