@@ -35,8 +35,7 @@
         </div>
       </div>
     </div>
-
-    <div id="map" class="w-full h-[300px] rounded-md overflow-hidden"></div>
+    <div id="map" class="w-full h-[360px] rounded-md overflow-hidden"></div>
   </div>
 </template>
 

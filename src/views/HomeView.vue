@@ -17,7 +17,7 @@
       />
     </div>
     <div class="w-[35%] pl-[20px]">
-      <SectionCurrentFlightStatusCard />
+      <SectionCurrentFlightStatusCard :flightData="flightData" />
     </div>
   </div>
 </template>
@@ -28,4 +28,5 @@ import SectionCurrentFlightStatusCard from "../components/HomeView/section/Secti
 import SectionFlightInformationCard from "../components/HomeView/section/SectionFlightInformationCard.vue";
 import SectionTopCards from "@/components/HomeView/section/SectionTopCards.vue";
 import summaryData from "@/data/summaryData.json";
+import flightData from "@/data/currentFlightData.json";
 </script>

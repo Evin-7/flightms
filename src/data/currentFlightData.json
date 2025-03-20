@@ -1,0 +1,26 @@
+[
+  {
+    "aircraft": "A350",
+    "dep": "KLAK ETO 1130z ATO 1136Z",
+    "status": "Enroute ETE:03:08",
+    "arr": "KPWK ETA 1130z ATA"
+  },
+  {
+    "aircraft": "B787",
+    "dep": "OMDB ETO 0900z ATO 0905Z",
+    "status": "Taxi ETE:06:45",
+    "arr": "EGLL ETA 1500z ATA"
+  },
+  {
+    "aircraft": "A320",
+    "dep": "LFPG ETO 0700z ATO 0702Z",
+    "status": "Parked ETE:01:45",
+    "arr": "EDDF ETA 0915z ATA"
+  },
+  {
+    "aircraft": "B777",
+    "dep": "VHHH ETO 2200z ATO 2210Z",
+    "status": "Enroute ETE:08:20",
+    "arr": "KLAX ETA 0600z ATA"
+  }
+]
