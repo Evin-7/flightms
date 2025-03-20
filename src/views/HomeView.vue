@@ -33,10 +33,23 @@
       <sectionAlertsCard :alerts="alertsData.alerts" />
     </div>
   </div>
+
+  <div class="flex flex-wrap p-4 flex-row justify-center">
+    <div class="w-[65%]">
+      <sectionSalesCard
+        
+      />
+    </div>
+    <div class="w-[35%] pl-[20px]">
+      <SectionPopularRatesCard  />
+    </div>
+  </div>
 </template>
 
 <script setup>
 import { onMounted, ref } from "vue";
+import SectionPopularRatesCard from "../components/HomeView/section/SectionPopularRatesCard.vue";
+import sectionSalesCard  from  "../components/HomeView/section/sectionSalesCard.vue";
 import SectionCurrentFlightStatusCard from "../components/HomeView/section/SectionCurrentFlightStatusCard.vue";
 import SectionFlightInformationCard from "../components/HomeView/section/SectionFlightInformationCard.vue";
 import SectionTopCards from "@/components/HomeView/section/SectionTopCards.vue";
