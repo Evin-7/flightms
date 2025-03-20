@@ -15,10 +15,25 @@
             :alt="`${link.label} Icon`"
             class="w-5 h-5"
           />
-          <span>{{ link.label }}</span>
+          <span
+            class="text-[12px]"
+            :class="{ 'text-flightmsdarkpurple': $route.path !== link.path }"
+          >
+            {{ link.label }}
+          </span>
         </router-link>
       </li>
     </ul>
+    <div
+      class="flex flex-wrap justify-center pb-[20px] pl-[20px] flex-row absolute bottom-0"
+    >
+      <div
+        class="w-[200px] bg-gray-200 rounded-[25px] p-2 flex items-center space-x-2"
+      >
+        <img :src="headPhonesBlack" class="h-5 w-5" alt="Headphones Icon" />
+        <span class="text-[12px] text-flightmsdarkpurple">Contact Support</span>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -41,6 +56,7 @@ import megaPhoneWhite from "../assets/icons/megaPhoneWhite.png";
 import megaPhoneBlack from "../assets/icons/megaPhoneBlack.png";
 import dollarWhite from "../assets/icons/dollarWhite.png";
 import dollarBlack from "../assets/icons/dollarBlack.png";
+import headPhonesBlack from "../assets/icons/headPhonesBlack.png";
 
 const links = [
   {
