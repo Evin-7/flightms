@@ -1,8 +1,7 @@
 <template>
-  <nav class="bg-white shadow-md text-flightmspurple px-4 py-3">
-    <div class="flex justify-between items-center">
-      <!-- Logo and Branding -->
-      <div class="md:hidden">
+  <nav class="fixed w-full bg-white shadow-md text-flightmspurple px-4 py-3">
+    <div class="md:hidden flex flex-col w-full">
+      <div class="flex items-center justify-between w-full">
         <div class="flex items-center space-x-2">
           <img :src="airplaneIcon" alt="Airplane Icon" class="w-8 h-8" />
           <span
@@ -12,10 +11,6 @@
           </span>
           <span class="text-sm text-black font-bold">FLIGHTS</span>
         </div>
-      </div>
-
-      <!-- Hamburger Menu (Mobile) -->
-      <div class="md:hidden">
         <button
           @click="toggleMenu"
           class="text-flightmspurple focus:outline-none"
@@ -25,15 +20,13 @@
         </button>
       </div>
 
-      <!-- Desktop Links -->
-      <div class="hidden md:flex justify-between items-center space-x-4 w-full">
-        <span class="font-medium text-2xl text-flightmsdarkpurple">
-          Dashboard</span
-        >
-
-        <div
-          class="flex w-[40%] items-center bg-gray-200 rounded-[25px] px-3 py-2"
-        >
+      <div class="flex flex-col md:hidden w-full pt-3">
+        <div class="w-full">
+          <span class="font-medium text-xl text-flightmsdarkpurple">
+            Dashboard
+          </span>
+        </div>
+        <div class="flex w-full mt-2 bg-gray-200 rounded-[25px] px-3 py-2">
           <img
             :src="searchIcon"
             alt="Search Icon"
@@ -46,20 +39,17 @@
           />
         </div>
 
-        <div class="flex items-center space-x-2">
-          <div
-            class="bg-gray-200 p-2 rounded-full flex items-center justify-center"
-          >
+        <div class="flex items-center justify-start w-full mt-2 space-x-2">
+          <div class="bg-gray-200 p-2 rounded-full flex items-center">
             <img :src="bellBlack" alt="Bell Icon" class="w-5 h-5" />
           </div>
-          <div class="pl-[20px]">
+          <div class="pl-[10px]">
             <img
               :src="Fernando"
               alt="User Icon"
               class="w-[35px] h-[35px] object-contain"
             />
           </div>
-
           <div class="flex flex-col leading-tight">
             <span class="font-medium text-flightmsdarkpurple">Fernando J</span>
             <span class="text-sm font-light text-gray-500">Admin</span>
@@ -73,11 +63,56 @@
           </div>
         </div>
       </div>
-
-      <!-- Search Bar -->
     </div>
 
-    <!-- Mobile Collapsible Menu -->
+    <div class="hidden md:block">
+      <div class="flex h-[50px] items-center space-x-4">
+        <div class="w-[20%]">
+          <span class="font-medium text-2xl text-flightmsdarkpurple">
+            Dashboard
+          </span>
+        </div>
+        <div
+          class="flex flex-grow-1 md:w-[25%] lg:w-[25%] bg-gray-200 rounded-[25px] px-3 py-2"
+        >
+          <img
+            :src="searchIcon"
+            alt="Search Icon"
+            class="w-5 h-5 text-gray-500"
+          />
+          <input
+            type="text"
+            placeholder="Search..."
+            class="w-full bg-gray-200 outline-none pl-2"
+          />
+        </div>
+
+        <div class="flex items-center w-[33%] justify-end space-x-2">
+          <div class="bg-gray-200 p-2 rounded-full flex items-center">
+            <img :src="bellBlack" alt="Bell Icon" class="w-5 h-5" />
+          </div>
+          <div class="pl-[10px]">
+            <img
+              :src="Fernando"
+              alt="User Icon"
+              class="w-[35px] h-[35px] object-contain"
+            />
+          </div>
+          <div class="flex flex-col leading-tight">
+            <span class="font-medium text-flightmsdarkpurple">Fernando J</span>
+            <span class="text-sm font-light text-gray-500">Admin</span>
+          </div>
+          <div class="flex leading-tight pr-[10px]">
+            <img
+              :src="downBlack"
+              alt="Dropdown Icon"
+              class="w-[15px] h-[15px] object-contain"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div
       v-if="isOpen"
       class="md:hidden space-y-4 py-4 border-t border-gray-700"
@@ -109,9 +144,7 @@ import closeIcon from "../../src/assets/icons/closeViolet.png";
 import menuIcon from "../../src/assets/icons/menuViolet.png";
 import bellBlack from "../../src/assets/icons/bellBlack.png";
 import downBlack from "../../src/assets/icons/downBlack.png";
-
 import Fernando from "../../src/assets/images/Fernando.jpg";
-
 import dashboardWhite from "../assets/icons/dashboardWhite.png";
 import dashboardBlack from "../assets/icons/dashboardBlack.png";
 import flightWhite from "../assets/icons/flightWhite.png";

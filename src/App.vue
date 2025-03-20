@@ -16,16 +16,16 @@
       </div>
 
       <div class="w-4/5 ml-[20%] bg-gray-100 flex flex-col">
-        <Navbar class="sticky top-0 z-10" />
-        <div class="p-6 flex-1 overflow-y-auto">
+        <Navbar />
+        <div class="flex-1 overflow-y-auto pt-[80px]">
           <router-view />
         </div>
       </div>
     </div>
 
     <div class="block md:hidden">
-      <Navbar class="sticky top-0 z-10" />
-      <div class="p-6 overflow-y-auto h-[calc(100vh-60px)]">
+      <Navbar />
+      <div class="p-6 overflow-y-auto h-[calc(100vh-60px)] pt-[60px]">
         <router-view />
       </div>
     </div>
