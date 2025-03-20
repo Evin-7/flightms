@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4">
+  <div class="p-0 lg:p-4">
     <SectionTopCards
       :salesAmount="summaryData.sales.amount"
       :scheduledCount="summaryData.scheduledFlights.count"
@@ -9,36 +9,36 @@
   </div>
 
   <div class="flex flex-wrap p-4 flex-row justify-center">
-    <div class="w-[65%]">
+    <div class="w-[100%] lg:w-[65%] pt-4">
       <SectionFlightInformationCard
         :enroute="summaryData.flightInformation.enroute"
         :taxi="summaryData.flightInformation.taxi"
         :parked="summaryData.flightInformation.parked"
       />
     </div>
-    <div class="w-[35%] pl-[20px]">
+    <div class="w-[100%] lg:w-[35%] lg:pl-[20px] pt-4">
       <SectionCurrentFlightStatusCard :flightData="flightData" />
     </div>
   </div>
 
   <div class="flex flex-wrap p-4 flex-row justify-center">
-    <div class="w-[65%]">
+    <div class="w-[100%] lg:w-[65%] pt-4">
       <SectionPerformanceCard
         :fleetOccupancy="performanceData.fleetOccupancy"
         :delay="performanceData.delay"
         :cancellations="performanceData.cancellations"
       />
     </div>
-    <div class="w-[35%] pl-[20px]">
+    <div class="w-[100%] lg:w-[35%] lg:pl-[20px] pt-4">
       <sectionAlertsCard :alerts="alertsData.alerts" />
     </div>
   </div>
 
   <div class="flex flex-wrap p-4 flex-row justify-center">
-    <div class="w-[65%]">
+    <div class="w-[100%] lg:w-[65%] pt-4">
       <sectionSalesCard :salesData="salesChartData.salesData" />
     </div>
-    <div class="w-[35%] pl-[20px]">
+    <div class="w-[100%] lg:w-[35%] lg:pl-[20px] pt-4">
       <SectionPopularRatesCard :routes="popularRoutes" />
     </div>
   </div>

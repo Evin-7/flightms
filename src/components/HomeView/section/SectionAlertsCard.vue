@@ -1,7 +1,11 @@
 <template>
-  <div class="p-4 text-flightmsdarkpurple bg-white rounded-xl h-[300px]">
+  <div
+    class="p-4 bg-white text-flightmsdarkpurple rounded-xl h-auto lg:h-[300px]"
+  >
     <div class="flex items-center justify-between mb-4">
-      <span class="text-xl text-left font-medium text-flightmsdarkpurple">
+      <span
+        class="text-sm lg:text-xl text-left font-medium text-flightmsdarkpurple"
+      >
         Alerts
       </span>
     </div>

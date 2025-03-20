@@ -1,10 +1,10 @@
 <template>
-  <div class="h-full p-5">
+  <div class="h-full p-1 lg:p-5">
     <ul class="space-y-1">
       <li v-for="link in links" :key="link.path">
         <router-link
           :to="link.path"
-          class="flex items-center space-x-4 px-[20px] py-3 rounded-[12px] transition"
+          class="flex items-center space-x-4 lg:px-[20px] px-[8px] rounded-[12px] transition lg:py-3 py-1"
           :class="{ 'bg-[#250c39] text-white': $route.path === link.path }"
         >
           <img
@@ -24,12 +24,8 @@
         </router-link>
       </li>
     </ul>
-    <div
-      class="flex flex-wrap justify-center pb-[20px] pl-[20px] flex-row absolute bottom-0"
-    >
-      <div
-        class="w-[200px] bg-gray-200 rounded-[25px] p-2 flex items-center space-x-2"
-      >
+    <div class="flex absolute bottom-0 left-0 right-0 justify-center mb-4">
+      <div class="bg-gray-200 rounded-[25px] p-2 flex items-center space-x-2">
         <img :src="headPhonesBlack" class="h-5 w-5" alt="Headphones Icon" />
         <span class="text-[12px] text-flightmsdarkpurple">Contact Support</span>
       </div>
@@ -124,3 +120,14 @@ const links = [
   },
 ];
 </script>
+<style scoped>
+/* Ensuring scroll on smaller screens */
+@media (max-width: 767px) {
+  .h-full {
+    max-height: calc(100vh - 70px); /* Adjust height as needed */
+  }
+  .overflow-y-auto {
+    overflow-y: auto;
+  }
+}
+</style>

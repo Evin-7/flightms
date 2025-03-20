@@ -1,8 +1,10 @@
 <template>
-  <div class="p-4 bg-white rounded-xl h-[300px]">
+  <div class="p-4 bg-white rounded-xl h-auto lg:h-[300px]">
     <!-- Header Section -->
     <div class="flex items-center justify-between mb-4">
-      <span class="text-xl font-medium text-flightmsdarkpurple">
+      <span
+        class="text-sm lg:text-xl text-left font-medium text-flightmsdarkpurple"
+      >
         Performance
       </span>
       <!-- Dropdown Filter -->
@@ -28,8 +30,8 @@
     </div>
 
     <!-- Pie Charts Row -->
-    <div class="flex justify-between">
-      <div class="flex flex-col items-center">
+    <div class="flex flex-wrap justify-between">
+      <div class="w-full sm:w-auto flex flex-col items-center mb-4 sm:mb-0">
         <apexchart
           type="donut"
           :options="fleetOccupancyOptions"
@@ -43,7 +45,9 @@
         </span>
       </div>
 
-      <div class="flex flex-col items-center">
+      <div
+        class="w-full sm:w-auto flex flex-col pt-[130px] sm:pt-0 items-center mb-4 sm:mb-0"
+      >
         <apexchart
           type="donut"
           :options="delayOptions"
@@ -57,7 +61,9 @@
         </span>
       </div>
 
-      <div class="flex flex-col items-center">
+      <div
+        class="w-full sm:w-auto flex pt-[130px] pb-[140px] sm:pt-0 sm:pb-0 flex-col items-center"
+      >
         <apexchart
           type="donut"
           :options="cancellationsOptions"
@@ -90,7 +96,6 @@ const selectedPeriod = ref("today");
 const basePieChartOptions = {
   chart: {
     type: "donut",
-    width: "100%",
   },
   plotOptions: {
     pie: {

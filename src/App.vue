@@ -25,7 +25,7 @@
 
     <div class="block md:hidden">
       <Navbar />
-      <div class="p-6 overflow-y-auto h-[calc(100vh-60px)] pt-[60px]">
+      <div class="overflow-y-auto bg-gray-100 h-[calc(100vh-60px)] pt-[60px]">
         <router-view />
       </div>
     </div>

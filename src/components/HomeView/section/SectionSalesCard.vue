@@ -1,7 +1,9 @@
 <template>
-  <div class="p-4 bg-white rounded-xl h-[450px]">
+  <div class="p-2 lg:p-4 h-auto lg:h-[430px] bg-white rounded-xl">
     <div class="flex items-center justify-between mb-4">
-      <span class="text-xl text-left font-medium text-flightmsdarkpurple">
+      <span
+        class="text-sm lg:text-xl text-left font-medium text-flightmsdarkpurple"
+      >
         Sales
       </span>
       <!-- Select dropdown on the right -->

@@ -1,7 +1,9 @@
 <template>
-  <div class="p-4 bg-white rounded-xl h-[450px]">
-    <div class="flex items-center justify-between mb-4">
-      <span class="text-xl text-left font-medium text-flightmsdarkpurple">
+  <div class="p-2 lg:p-4 bg-white rounded-xl">
+    <div class="flex items-center flex-wrap justify-between mb-4">
+      <span
+        class="text-sm lg:text-xl text-left font-medium text-flightmsdarkpurple"
+      >
         Current Flight Status
       </span>
 
@@ -26,7 +28,9 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-4 font-medium text-flightmsdarkpurple pb-2 mb-2">
+    <div
+      class="grid grid-cols-4 p-2 font-medium text-flightmsdarkpurple pb-2 mb-2"
+    >
       <span>Aircraft</span>
       <span>Dep</span>
       <span>Status</span>
@@ -37,7 +41,7 @@
       v-for="(flight, index) in filteredFlights"
       :key="index"
       :class="[
-        'grid grid-cols-4  text-sm text-flightmsdarkpurple py-2 rounded-md mb-1',
+        'grid grid-cols-4   text-sm text-flightmsdarkpurple py-2 rounded-md mb-1',
         selectedStatus !== 'all' &&
         flight.status.toLowerCase().includes(selectedStatus)
           ? 'bg-red-100'

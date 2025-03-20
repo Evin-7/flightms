@@ -1,7 +1,9 @@
 <template>
-  <div class="p-4 bg-white rounded-xl h-[450px]">
-    <div class="flex items-center justify-between mb-4">
-      <span class="text-xl text-left font-medium text-flightmsdarkpurple">
+  <div class="p-2 lg:p-4 bg-white rounded-xl">
+    <div class="flex items-center flex-wrap justify-between mb-4">
+      <span
+        class="text-sm lg:text-xl text-left font-medium text-flightmsdarkpurple"
+      >
         Flight Information
       </span>
 
