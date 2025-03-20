@@ -1,9 +1,9 @@
 <template>
   <div class="h-screen font-poppins">
     <div class="hidden md:flex h-full">
-      <div class="w-1/5 text-flightmspurple fixed h-full">
+      <div class="w-[18%] text-flightmspurple fixed h-full">
         <div
-          class="flex flex-wrap flex-row justify-center w-[80%] pb-[30px] pt-[20px] items-center space-x-2"
+          class="flex flex-wrap flex-row justify-center w-[80%] pb-[10px] pt-[20px] items-center space-x-2"
         >
           <img :src="airplaneIcon" alt="Airplane Icon" class="w-8 h-8" />
           <span
@@ -15,7 +15,7 @@
         <Sidebar />
       </div>
 
-      <div class="w-4/5 ml-[20%] bg-gray-100 flex flex-col">
+      <div class="w-full ml-[18%] bg-gray-100 flex flex-col">
         <Navbar />
         <div class="flex-1 overflow-y-auto pt-[80px]">
           <router-view />
