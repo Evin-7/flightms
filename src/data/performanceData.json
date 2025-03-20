@@ -1,0 +1,5 @@
+{
+  "fleetOccupancy": [70, 25],
+  "delay": [30, 70],
+  "cancellations": [30, 80]
+}

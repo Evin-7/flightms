@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 bg-white rounded-xl">
+  <div class="p-4 bg-white rounded-xl h-[450px]">
     <div class="flex items-center justify-between mb-4">
       <span class="text-xl text-left font-medium text-flightmsdarkpurple">
         Flight Information
@@ -35,97 +35,140 @@
         </div>
       </div>
     </div>
-    <div id="map" class="w-full h-[360px] rounded-md overflow-hidden"></div>
+
+    <!-- Map Container -->
+    <div
+      id="map"
+      class="w-full z-10 rounded-md overflow-hidden h-[370px]"
+    ></div>
   </div>
 </template>
 
 <script setup>
-import { onMounted } from "vue";
-import planeIconUrl from "@/assets/icons/flightWhite.png";
+import { onMounted, onBeforeUnmount, nextTick } from "vue";
+import L from "leaflet";
+import "leaflet/dist/leaflet.css";
+import planeIconUrl from "@/assets/icons/flightWhite.png"; // Use your plane icon URL
 
-// Props
-defineProps({
+// Props for incoming data (enroute, taxi, parked)
+const props = defineProps({
   enroute: Number,
   taxi: Number,
   parked: Number,
 });
 
-onMounted(() => {
-  const map = new google.maps.Map(document.getElementById("map"), {
-    center: { lat: 30, lng: -10 },
-    zoom: 2,
-    styles: [
-      {
-        elementType: "geometry",
-        stylers: [{ color: "#f5f5f5" }],
-      },
-      {
-        featureType: "water",
-        elementType: "geometry",
-        stylers: [{ color: "#b0e0e6" }],
-      },
-    ],
-  });
+let map = null;
 
+onMounted(() => {
+  nextTick(() => {
+    initMap();
+  });
+});
+
+function initMap() {
+  // Ensure the map is cleared before reinitializing
+  if (map) {
+    map.off();
+    map.remove();
+    map = null;
+    const mapElement = document.getElementById("map");
+    if (mapElement) {
+      mapElement.innerHTML = "";
+    }
+  }
+
+  // Initialize map
+  map = L.map("map").setView([30, -10], 2);
+
+  // Add OpenStreetMap tiles
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    attribution: "&copy; OpenStreetMap contributors",
+  }).addTo(map);
+
+  // Flight routes data
   const flightRoutes = [
     {
       path: [
-        { lat: 37.0902, lng: -95.7129 },
-        { lat: 41.9028, lng: 12.4964 },
-        { lat: 20.5937, lng: 78.9629 },
+        [37.0902, -95.7129], // USA
+        [41.9028, 12.4964], // Italy
+        [20.5937, 78.9629], // India
       ],
-      color: "#00FFCC",
+      color: "#00FFCC", // Color for this route
     },
     {
       path: [
-        { lat: 34.0522, lng: -118.2437 },
-        { lat: 48.8566, lng: 2.3522 },
+        [34.0522, -118.2437], // USA (Los Angeles)
+        [48.8566, 2.3522], // France (Paris)
       ],
-      color: "#00FFCC",
-    },
-
-    {
-      path: [
-        { lat: 40.7128, lng: -74.006 },
-        { lat: 35.6762, lng: 139.6503 },
-      ],
-      color: "#67e1ff",
+      color: "#FF5733", // Color for this route
     },
     {
       path: [
-        { lat: -33.8688, lng: 151.2093 },
-        { lat: 1.3521, lng: 103.8198 },
+        [40.7128, -74.006], // USA (New York)
+        [35.6762, 139.6503], // Japan (Tokyo)
       ],
-      color: "#67e1ff",
+      color: "#67e1ff", // Color for this route
+    },
+    {
+      path: [
+        [-33.8688, 151.2093], // Australia (Sydney)
+        [1.3521, 103.8198], // Singapore
+      ],
+      color: "#FF6347", // Color for this route
     },
   ];
 
+  // Loop through flight routes to draw them on the map
   flightRoutes.forEach((route) => {
-    const flightPath = new google.maps.Polyline({
-      path: route.path,
-      geodesic: false,
-      strokeColor: route.color,
-      strokeOpacity: 0.9,
-      strokeWeight: 1,
-    });
+    // Add polyline for each route with a thinner line (e.g., weight: 1)
+    L.polyline(route.path, {
+      color: route.color,
+      weight: 1, // Decreased thickness
+      opacity: 0.7, // Line opacity
+    }).addTo(map);
 
-    flightPath.setMap(map);
-
+    // Add markers at the start and end of each route
     const markers = [
-      { position: route.path[0] },
-      { position: route.path[route.path.length - 1] },
+      { position: route.path[0] }, // Starting point
+      { position: route.path[route.path.length - 1] }, // Ending point
     ];
 
     markers.forEach((marker) => {
-      new google.maps.Marker({
-        position: marker.position,
-        map,
-        icon: {
-          url: planeIconUrl,
-          scaledSize: new google.maps.Size(30, 30),
-        },
+      const icon = L.icon({
+        iconUrl: planeIconUrl, // Use your custom plane icon URL
+        iconSize: [32, 32],
+        iconAnchor: [16, 16], // Center the icon
       });
+
+      L.marker(marker.position, { icon: icon }).addTo(map);
     });
   });
+
+  // Invalidate the size of the map after the DOM is updated
+  if (map) {
+    map.invalidateSize();
+  }
+}
+
+onBeforeUnmount(() => {
+  if (map) {
+    map.off();
+    map.remove();
+    map = null;
+    const mapElement = document.getElementById("map");
+    if (mapElement) {
+      mapElement.innerHTML = "";
+    }
+  }
 });
 </script>
+
+<style>
+/* Dark Theme with Dark Green Oceans */
+.leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+</style>

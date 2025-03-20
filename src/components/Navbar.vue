@@ -1,5 +1,7 @@
 <template>
-  <nav class="w-full bg-white shadow-md text-flightmspurple px-4 py-3 md:fixed">
+  <nav
+    class="w-full relative z-50 bg-white shadow-md text-flightmspurple px-4 py-3 md:fixed"
+  >
     <div class="md:hidden flex flex-col w-full">
       <div class="flex items-center justify-between w-full">
         <div class="flex items-center space-x-2">

@@ -20,6 +20,19 @@
       <SectionCurrentFlightStatusCard :flightData="flightData" />
     </div>
   </div>
+
+  <div class="flex flex-wrap p-4 flex-row justify-center">
+    <div class="w-[65%]">
+      <SectionPerformanceCard
+        :fleetOccupancy="performanceData.fleetOccupancy"
+        :delay="performanceData.delay"
+        :cancellations="performanceData.cancellations"
+      />
+    </div>
+    <div class="w-[35%] pl-[20px]">
+      <sectionAlertsCard :alerts="alertsData.alerts" />
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -28,5 +41,9 @@ import SectionCurrentFlightStatusCard from "../components/HomeView/section/Secti
 import SectionFlightInformationCard from "../components/HomeView/section/SectionFlightInformationCard.vue";
 import SectionTopCards from "@/components/HomeView/section/SectionTopCards.vue";
 import summaryData from "@/data/summaryData.json";
+import SectionPerformanceCard from "@/components/HomeView/section/SectionPerformanceCard.vue";
+import sectionAlertsCard from "@/components/HomeView/section/sectionAlertsCard.vue";
 import flightData from "@/data/currentFlightData.json";
+import performanceData from "@/data/performanceData.json";
+import alertsData from "@/data/alertsData.json"; // Import the alerts data
 </script>

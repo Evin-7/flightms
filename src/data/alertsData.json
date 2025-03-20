@@ -1,0 +1,15 @@
+{
+  "alerts": [
+    {
+      "type": "Connection Loss",
+      "flight": "N1234H",
+      "timeAgo": "20 min ago"
+    },
+    {
+      "type": "Low Data",
+      "remaining": "less than 25%",
+      "flight": "B2H10",
+      "timeAgo": "1 hour ago"
+    }
+  ]
+}
