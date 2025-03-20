@@ -36,12 +36,10 @@
 
   <div class="flex flex-wrap p-4 flex-row justify-center">
     <div class="w-[65%]">
-      <sectionSalesCard
-        
-      />
+      <sectionSalesCard :salesData="salesChartData.salesData" />
     </div>
     <div class="w-[35%] pl-[20px]">
-      <SectionPopularRatesCard  />
+      <SectionPopularRatesCard :routes="popularRoutes" />
     </div>
   </div>
 </template>
@@ -49,7 +47,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import SectionPopularRatesCard from "../components/HomeView/section/SectionPopularRatesCard.vue";
-import sectionSalesCard  from  "../components/HomeView/section/sectionSalesCard.vue";
+import sectionSalesCard from "../components/HomeView/section/sectionSalesCard.vue";
 import SectionCurrentFlightStatusCard from "../components/HomeView/section/SectionCurrentFlightStatusCard.vue";
 import SectionFlightInformationCard from "../components/HomeView/section/SectionFlightInformationCard.vue";
 import SectionTopCards from "@/components/HomeView/section/SectionTopCards.vue";
@@ -58,5 +56,7 @@ import SectionPerformanceCard from "@/components/HomeView/section/SectionPerform
 import sectionAlertsCard from "@/components/HomeView/section/sectionAlertsCard.vue";
 import flightData from "@/data/currentFlightData.json";
 import performanceData from "@/data/performanceData.json";
-import alertsData from "@/data/alertsData.json"; // Import the alerts data
+import alertsData from "@/data/alertsData.json";
+import salesChartData from "@/data/salesData.json";
+import popularRoutes from "@/data/popularRoutes.json";
 </script>

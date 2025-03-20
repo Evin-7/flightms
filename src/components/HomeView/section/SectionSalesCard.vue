@@ -4,6 +4,25 @@
       <span class="text-xl text-left font-medium text-flightmsdarkpurple">
         Sales
       </span>
+      <!-- Select dropdown on the right -->
+      <div class="relative">
+        <select
+          v-model="selectedOption"
+          class="appearance-none bg-white text-flightmsdarkpurple py-1 px-3 pr-8 rounded-md border border-[#D3D3D3] cursor-pointer focus:outline-none focus:ring-0"
+          @change="updateChartData"
+        >
+          <option value="lastWeek">Last Week</option>
+          <option value="lastMonth">Last Month</option>
+          <option value="lastQuarter">Last Quarter</option>
+        </select>
+        <div class="absolute top-1/2 right-2 transform -translate-y-1/2">
+          <img
+            src="@/assets/icons/downBlack.png"
+            alt="Dropdown Icon"
+            class="w-4 h-4"
+          />
+        </div>
+      </div>
     </div>
     <apexchart
       type="bar"
@@ -13,52 +32,36 @@
     />
   </div>
 </template>
-  
-  <script setup>
-import { ref } from "vue";
+
+<script setup>
+import { ref, defineProps, onMounted } from "vue";
 import VueApexCharts from "vue3-apexcharts";
 
-// Sales data
-const salesSeries = ref([
-  {
-    name: "Sales",
-    data: [75, 46, 66, 25, 50, 85, 46], // Actual sales values (Adjusted to 0-100)
-    color: "#1A103D", // Dark color for the filled portion
-  },
-  {
-    name: "Unfilled Sales",
-    data: [100, 100, 40, 100, 100, 100, 100], // Unfilled portion (100 - actual value)
-    color: "#F6F6F6",
-  },
-]);
+// Props to receive sales data
+const props = defineProps({
+  salesData: Object,
+});
 
-// Chart configuration
+// Reactive data for sales series and chart options
+const salesSeries = ref([]);
 const salesChartOptions = ref({
   chart: {
     type: "bar",
     height: 350,
-    stacked: true, // Stacking the bars to overlay the filled and unfilled portions
+    stacked: true,
   },
   plotOptions: {
     bar: {
       borderRadius: 4,
       horizontal: false,
-      columnWidth: "60%", // Decrease the bar width here
+      columnWidth: "60%",
     },
   },
   dataLabels: {
     enabled: false,
   },
   xaxis: {
-    categories: [
-      "June 01",
-      "June 02",
-      "June 03",
-      "June 04",
-      "June 05",
-      "June 06",
-      "Sep 16",
-    ],
+    categories: [],
   },
   yaxis: {
     labels: {
@@ -66,18 +69,92 @@ const salesChartOptions = ref({
         return val + "k";
       },
     },
-    tickAmount: 5, // 5 ticks to get 20k, 40k, 60k, 80k, 100k
+    tickAmount: 5,
     min: 0,
     max: 100,
     forceNiceScale: true,
   },
   legend: {
-    show: false, // Hide the legend if you don't need it
+    show: false,
   },
 });
+
+// Reactive property for the selected option
+const selectedOption = ref("lastWeek");
+
+// Method to update the chart data based on the selected option
+const updateChartData = () => {
+  let salesData;
+  switch (selectedOption.value) {
+    case "lastWeek":
+      salesData = {
+        sales: [50, 60, 70, 55, 80, 90, 65], // Sample data for last week
+        unfilledSales: [100, 100, 30, 100, 100, 100, 90],
+        categories: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+      };
+      break;
+    case "lastMonth":
+      salesData = {
+        sales: [10, 50, 25, 90, 40, 80, 50], // Sample data for last month
+        unfilledSales: [100, 100, 30, 100, 100, 100, 90],
+
+        categories: [
+          "Week 1",
+          "Week 2",
+          "Week 3",
+          "Week 4",
+          "Week 5",
+          "Week 6",
+          "Week 7",
+        ],
+      };
+      break;
+    case "lastQuarter":
+      salesData = {
+        sales: [80, 50, 10, 50, 25, 90, 40], // Sample data for last quarter
+        unfilledSales: [100, 100, 30, 100, 100, 100, 90],
+
+        categories: ["Jan-Mar", "Apr-Jun", "Jul-Sep", "Oct-Dec"],
+      };
+      break;
+    default:
+      salesData = {
+        sales: [75, 46, 66, 25, 50, 85, 46], // Default sales data (last week)
+        unfilledSales: [100, 100, 40, 100, 100, 100, 100],
+        categories: [
+          "June 01",
+          "June 02",
+          "June 03",
+          "June 04",
+          "June 05",
+          "June 06",
+          "Sep 16",
+        ],
+      };
+  }
+
+  salesSeries.value = [
+    {
+      name: "Sales",
+      data: salesData.sales,
+      color: "#1A103D",
+    },
+    {
+      name: "Unfilled Sales",
+      data: salesData.unfilledSales,
+      color: "#F6F6F6",
+    },
+  ];
+  salesChartOptions.value.xaxis.categories = salesData.categories;
+};
+
+// Call the function to initialize data on mount
+onMounted(() => {
+  updateChartData(); // Initialize the chart with default data
+});
 </script>
-  
-  <script>
+
+<script>
 import VueApexCharts from "vue3-apexcharts";
 
 export default {

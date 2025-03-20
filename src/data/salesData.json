@@ -1,0 +1,15 @@
+{
+  "salesData": {
+    "sales": [75, 46, 66, 25, 50, 85, 46],
+    "unfilledSales": [25, 54, 34, 75, 50, 15, 54],
+    "categories": [
+      "June 01",
+      "June 02",
+      "June 03",
+      "June 04",
+      "June 05",
+      "June 06",
+      "Sep 16"
+    ]
+  }
+}

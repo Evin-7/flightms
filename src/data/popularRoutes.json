@@ -1,0 +1,19 @@
+[
+  {
+    "route": "Kuala Lumpur (KUL) to Singapore (SIN)",
+    "distance": 120
+  },
+
+  {
+    "route": "Hong  Kong (HKG) to Singapore (TPE)",
+    "distance": 110
+  },
+  {
+    "route": "New York (NYC) to Toronto (LGA)",
+    "distance": 80
+  },
+  {
+    "route": "Jakarta (CGK) to Kuala Lumpur (KUL)",
+    "distance": 60
+  }
+]
