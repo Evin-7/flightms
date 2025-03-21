@@ -1,4 +1,6 @@
 <template>
+  <div>
+
   <div class="flex flex-wrap p-4 flex-row justify-start">
     <div class="w-[32%]">
       <div class="flex space-x-4 border-b">
@@ -73,17 +75,16 @@
       </div>
     </div>
   </div>
-
-  <div class="flex flex-wrap justify-center">
-    <div v-if="flightDetails.length === 0" class="text-center text-gray-500 p-4">
-      No flights available.
-    </div>
-    <div class="flex flex-row flex-wrap justify-center">
-      <div class="w-[100%]">
-        <sectionFlightCard :flights="flightDetails" />
-      </div>
+</div>
+<div>
+  <div class="flex flex-row flex-wrap justify-center">
+    <div class="w-[96%]">
+      <sectionFlightCard :flights="flightDetails" />
     </div>
   </div>
+  </div>
+
+ 
 </template>
 
 <script setup>

@@ -2,7 +2,7 @@
   <div
     v-for="flight in mappedFlights"
     :key="flight.id"
-    class="w-[146vh] bg-white pb-[20px] rounded-lg relative mb-4"
+    class=" bg-white pb-[20px] rounded-lg relative mb-4"
   >
     <div class="flex flex-wrap justify-center flex-row pt-[20px] pb-[20px]">
       <div class="w-[94%] flex items-center">
