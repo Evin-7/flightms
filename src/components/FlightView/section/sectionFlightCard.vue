@@ -5,7 +5,7 @@
     class=" bg-white pb-[20px] rounded-lg relative mb-4"
   >
     <div class="flex flex-wrap justify-center flex-row pt-[20px] pb-[20px]">
-      <div class="w-[94%] flex items-center">
+      <div class="md:w-[94%] flex items-center">
         {{ flight.aircraft }}
         <div
           class="ml-2 bg-flightmslightgray border border-red-500 flex h-[30px] items-center justify-center text-[#ff0000] text-xs px-2 py-1 rounded-[3px]"
@@ -56,27 +56,27 @@
 
     <div class="items-center">
       <div
-        class="pl-[20px] flex flex-wrap justify-center items-center flex-row"
+        class="pl-0 lg:pl-[20px] flex flex-wrap justify-center items-center flex-row"
       >
         <div
-          class="w-[85%] flex-row flex flex-wrap rounded-[12px] p-4 h-[110px]"
+          class="w-[100%] md:w-[85%] flex-row flex flex-wrap rounded-[12px] p-4 h-auto lg:h-[110px]"
           :class="
             flight.status === 'Cancelled'
               ? 'bg-red-100'
               : 'bg-flightmslightgray'
           "
         >
-          <div class="w-[28%] pt-[10px]">
+          <div class=" w-[100%] md:w-[28%] text-center  md:text-left  pt-[10px]">
             <span class="text-[12px]">{{ flight.departure.date }}</span>
             <span class="block text-[18px] font-medium pt-[6px]">{{
-              flight.departure.time
-            }}</span>
+              flight.departure.time 
+            }}</span> 
             <span class="text-[12px] block">{{
               flight.departure.airport
             }}</span>
           </div>
 
-          <div class="w-[40%] pt-[10px] items-center text-center">
+          <div class=" w-[100%] md:w-[40%] pt-[10px] items-center text-center">
             <div class="flex pt-[10px] justify-center items-center">
               <div class="flex items-center">
                 <img
@@ -84,15 +84,15 @@
                   alt="Airplane Takeoff"
                   class="w-[25px] -mb-[10px] h-[25px]"
                 />
-                <div class="text-black text-[8px] mx-2">--------------</div>
+                <div class="text-black text-[8px] mx-2">-------------</div>
               </div>
               <div
-                class="bg-white text-sm rounded-md p-2 h-[35px] flex justify-center items-center mx-2"
+                class="bg-white text-[8px] lg:text-sm rounded-md p-2 h-[35px] flex justify-center items-center mx-2"
               >
                 {{ flight.duration }}
               </div>
               <div class="flex items-center">
-                <div class="text-black text-[8px] mx-2">--------------</div>
+                <div class="text-black text-[8px] mx-2">-------------</div>
                 <img
                   :src="FlightLandingBlack"
                   alt="Airplane Landing"
@@ -102,7 +102,7 @@
             </div>
           </div>
 
-          <div class="w-[32%] items-end text-right">
+          <div class=" w-[100%] md:w-[32%] text-center  md:text-right ">
             <span class="text-[12px]">{{ flight.arrival.date }}</span>
             <span class="block text-[18px] font-medium pt-[6px]">{{
               flight.arrival.time
@@ -112,7 +112,7 @@
         </div>
 
         <div
-          class="flex flex-wrap justify-center items-center flex-row w-[15%]"
+          class="flex flex-wrap justify-center items-center pt-[20px] md:pt-[0px] flex-row w-[100%] md:w-[15%]"
         >
           <div
             :class="
@@ -120,7 +120,7 @@
                 ? 'bg-red-100'
                 : 'bg-flightmslightgray'
             "
-            class="rounded-[12px] h-[110px] w-[70%] flex flex-col justify-center items-center"
+            class="rounded-[12px]  h-auto p-[20px] md:pt-[0px] md:h-[110px] w-[100%] md:w-[70%] flex flex-col justify-center items-center"
           >
             <div class="-mt-[10px]">
               <span class="text-[8px]"> Pilots & Crew </span>
