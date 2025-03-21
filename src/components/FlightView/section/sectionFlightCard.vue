@@ -164,7 +164,6 @@ import air4 from "../../../assets/images/air4.jpg";
 import air5 from "../../../assets/images/air5.jpg";
 import air6 from "../../../assets/images/air6.jpg";
 
-import { defineProps } from "vue";
 
 const crewImages = [air1, air2, air3, air4, air5, air6];
 
