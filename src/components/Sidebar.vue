@@ -4,8 +4,10 @@
       <li v-for="link in links" :key="link.path">
         <router-link
           :to="link.path"
-          class="flex items-center space-x-4 lg:px-[20px] px-[8px] rounded-[12px] transition lg:py-3 py-1"
-          :class="{ 'bg-[#250c39] text-white': $route.path === link.path }"
+          class="flex items-center md:w-[90%] lg:w-[90%] space-x-4 lg:px-[10px] px-[2px] rounded-[12px] transition lg:py-3 py-1"
+          :class="{
+            'bg-[#250c39] md:w-[90%] text-white': $route.path === link.path,
+          }"
         >
           <img
             v-if="link.iconType === 'dynamic'"
