@@ -1,0 +1,44 @@
+[
+  {
+    "id": 1,
+    "aircraft": "Boeing 777",
+    "status": "Ready For Departure",
+    "departure": {
+      "date": "Fri, 7 Jan 2024",
+      "time": "18:45",
+      "airport": "LAX"
+    },
+    "arrival": {
+      "date": "Sat, 8 Jan 2024",
+      "time": "22:30",
+      "airport": "JFK"
+    },
+    "duration": "5 hr 45 min",
+    "occupancy": {
+      "total": "85%",
+      "economy": "220/260",
+      "business": "12/20"
+    }
+  },
+  {
+    "id": 2,
+    "aircraft": "Airbus A350",
+    "status": "Cancelled",
+    "departure": {
+      "date": "Tue, 4 Jan 2024",
+      "time": "12:25",
+      "airport": "YYZ"
+    },
+    "arrival": {
+      "date": "Wed, 5 Jan 2024",
+      "time": "11:25",
+      "airport": "DEL"
+    },
+    "duration": "13 hr 14 min",
+    "occupancy": {
+      "total": "70%",
+      "economy": "40/280",
+      "business": "2/14"
+    }
+  }
+]
