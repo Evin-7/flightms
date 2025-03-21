@@ -2,11 +2,13 @@
   <div
     v-for="flight in mappedFlights"
     :key="flight.id"
-    class=" bg-white pb-[20px] rounded-lg relative mb-4"
+    class="bg-white pb-[20px] rounded-lg relative mb-4"
   >
     <div class="flex flex-wrap justify-center flex-row pt-[20px] pb-[20px]">
       <div class="md:w-[94%] flex items-center">
-        {{ flight.aircraft }}
+        <span class="font-medium">
+          {{ flight.aircraft }}
+        </span>
         <div
           class="ml-2 bg-flightmslightgray border border-red-500 flex h-[30px] items-center justify-center text-[#ff0000] text-xs px-2 py-1 rounded-[3px]"
           v-if="flight.status === 'Cancelled'"
@@ -66,17 +68,17 @@
               : 'bg-flightmslightgray'
           "
         >
-          <div class=" w-[100%] md:w-[28%] text-center  md:text-left  pt-[10px]">
+          <div class="w-[100%] md:w-[28%] text-center md:text-left pt-[10px]">
             <span class="text-[12px]">{{ flight.departure.date }}</span>
             <span class="block text-[18px] font-medium pt-[6px]">{{
-              flight.departure.time 
-            }}</span> 
+              flight.departure.time
+            }}</span>
             <span class="text-[12px] block">{{
               flight.departure.airport
             }}</span>
           </div>
 
-          <div class=" w-[100%] md:w-[40%] pt-[10px] items-center text-center">
+          <div class="w-[100%] md:w-[40%] pt-[10px] items-center text-center">
             <div class="flex pt-[10px] justify-center items-center">
               <div class="flex items-center">
                 <img
@@ -102,7 +104,7 @@
             </div>
           </div>
 
-          <div class=" w-[100%] md:w-[32%] text-center  md:text-right ">
+          <div class="w-[100%] md:w-[32%] text-center md:text-right">
             <span class="text-[12px]">{{ flight.arrival.date }}</span>
             <span class="block text-[18px] font-medium pt-[6px]">{{
               flight.arrival.time
@@ -120,7 +122,7 @@
                 ? 'bg-red-100'
                 : 'bg-flightmslightgray'
             "
-            class="rounded-[12px]  h-auto p-[20px] md:pt-[0px] md:h-[110px] w-[100%] md:w-[70%] flex flex-col justify-center items-center"
+            class="rounded-[12px] h-auto p-[20px] md:pt-[0px] md:h-[110px] w-[100%] md:w-[70%] flex flex-col justify-center items-center"
           >
             <div class="-mt-[10px]">
               <span class="text-[8px]"> Pilots & Crew </span>
@@ -175,7 +177,7 @@ const mappedFlights = computed(() =>
   props.flights.map((flight, index) => ({
     ...flight,
     crew: crewImages.slice(index * 3, index * 3 + 3), // Assign three images per flight
-  })),
+  }))
 );
 
 const showTooltip = ref(null);
