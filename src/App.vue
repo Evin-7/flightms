@@ -1,7 +1,8 @@
 <template>
   <div class="h-screen justify-center font-poppins">
-    <div class="hidden md:flex h-full">
-      <div class="w-[18%] text-flightmspurple fixed h-full">
+    <div class=" h-full ">
+      <div class="hidden md:block">
+      <div class="w-[18%]   text-flightmspurple fixed h-full">
         <div
           class="flex flex-wrap flex-row justify-center w-[80%] pb-[10px] pt-[20px] items-center space-x-2"
         >
@@ -14,8 +15,9 @@
         </div>
         <Sidebar />
       </div>
+    </div>
 
-      <div class="w-full ml-[18%] bg-gray-100 flex flex-col">
+      <div class="w-full md:ml-[18%] bg-gray-100 flex flex-col">
         <Navbar />
         <div class="flex-1 overflow-y-auto pt-[80px]">
           <router-view />
@@ -23,12 +25,7 @@
       </div>
     </div>
 
-    <div class="block md:hidden">
-      <Navbar />
-      <div class="overflow-y-auto bg-gray-100 h-[calc(100vh-60px)] pt-[60px]">
-        <router-view />
-      </div>
-    </div>
+ 
   </div>
 </template>
 
