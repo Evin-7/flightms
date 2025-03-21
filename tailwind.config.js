@@ -7,7 +7,6 @@ export default {
       colors: {
         flightmspurple: "#5E56C7",
         flightmsdarkpurple: "#1A103D",
-        flightmsdarkpurple: "#1A103D",
         flightmsgray: "#808080",
         flightmslightgray: "#f6f6f6",
       },

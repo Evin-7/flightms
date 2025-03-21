@@ -164,7 +164,6 @@ import air4 from "../../../assets/images/air4.jpg";
 import air5 from "../../../assets/images/air5.jpg";
 import air6 from "../../../assets/images/air6.jpg";
 
-
 const crewImages = [air1, air2, air3, air4, air5, air6];
 
 const props = defineProps({
@@ -176,7 +175,7 @@ const mappedFlights = computed(() =>
   props.flights.map((flight, index) => ({
     ...flight,
     crew: crewImages.slice(index * 3, index * 3 + 3), // Assign three images per flight
-  }))
+  })),
 );
 
 const showTooltip = ref(null);

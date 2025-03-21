@@ -1,5 +1,4 @@
 import { createApp } from "vue";
-import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router";
 import "./index.css";
@@ -10,7 +9,6 @@ const app = createApp(App);
 
 // Then use plugins and libraries
 app.use(VueApexCharts); // Add VueApexCharts plugin
-app.use(createPinia()); // Use Pinia store
 app.use(router); // Use Vue Router
 
 // Finally, mount the app

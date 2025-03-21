@@ -21,7 +21,8 @@
       <div class="w-[100%] md:w-[58%] lg:w-[68%] md:pt-0 pt-4 text-right">
         <div class="flex justify-end">
           <button
-            class="bg-flightmsdarkpurple w-full md:w-[180px] lg:w-[170px] text-white py-2 px-4 rounded-lg shadow-md hover:bg-[#4B0082] transition-all"
+            @click="$router.push('/add-flight/step-1')"
+            class="bg-flightmsdarkpurple w-full md:w-[180px] lg:w-[170px] text-white py-2 px-4 rounded-lg shadow-md hover:bg-flightmspurple transition-all"
           >
             <span class="text-sm"> + Add New Flight </span>
           </button>
@@ -103,7 +104,7 @@ const tabs = ["Upcoming", "Completed", "Real-time tracking"];
 const activeTab = ref("Upcoming");
 const today = new Date();
 const currentDate = ref(
-  today.toLocaleDateString("en-US", { year: "numeric", month: "long" })
+  today.toLocaleDateString("en-US", { year: "numeric", month: "long" }),
 );
 
 const startOfWeekDate = ref(startOfWeek(today, { weekStartsOn: 0 })); // Sunday start
