@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "apexcharts": "^4.5.0",
+    "date-fns": "^4.1.0",
     "eslint-config-prettier": "^10.1.1",
     "leaflet": "^1.9.4",
     "pinia": "^3.0.1",

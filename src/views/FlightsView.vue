@@ -30,9 +30,7 @@
 
   <div class="flex flex-wrap p-4 flex-row justify-start">
     <div class="w-[32%]">
-      <div
-        class="flex w-[40%] items-center space-x-2 bg-white/50 p-2 rounded-md"
-      >
+      <div class="flex w-[40%] items-center space-x-2 bg-white/50 p-2 rounded-md">
         <span class="text-flightmspurple">{{ currentDate }}</span>
         <img
           src="@/assets/icons/calendarBlack.png"
@@ -65,21 +63,19 @@
       <div
         v-for="(day, index) in weekDays"
         :key="index"
-        class="flex flex-col items-center justify-center bg-white rounded-md w-[140px] h-[90px] p-2"
+        :class="[
+          'flex flex-col items-center justify-center rounded-md w-[140px] h-[90px] p-2',
+          isToday(day.fullDate) ? 'bg-[#5E56C7] text-white' : 'bg-white',
+        ]"
       >
-        <span class="text-lg text-flightmsgray font-normal">{{
-          day.date
-        }}</span>
-        <span class="text-sm text-flightmsgray font-light">{{ day.day }}</span>
+        <span class="text-lg font-normal">{{ day.date }}</span>
+        <span class="text-sm font-light">{{ day.day }}</span>
       </div>
     </div>
   </div>
 
   <div class="flex flex-wrap justify-center">
-    <div
-      v-if="flightDetails.length === 0"
-      class="text-center text-gray-500 p-4"
-    >
+    <div v-if="flightDetails.length === 0" class="text-center text-gray-500 p-4">
       No flights available.
     </div>
     <div class="flex flex-row flex-wrap justify-center">
@@ -94,42 +90,46 @@
 import { ref, computed } from "vue";
 import flightDetails from "@/data/flightDetails.json";
 import sectionFlightCard from "../components/FlightView/section/sectionFlightCard.vue";
+import {
+  startOfWeek,
+  addDays,
+  format,
+  isSameDay,
+  subWeeks,
+  addWeeks,
+} from "date-fns";
 
 const tabs = ["Upcoming", "Completed", "Real-time tracking"];
 const activeTab = ref("Upcoming");
 const today = new Date();
 const currentDate = ref(
-  today.toLocaleDateString("en-US", { year: "numeric", month: "long" }),
+  today.toLocaleDateString("en-US", { year: "numeric", month: "long" })
 );
-const startOfWeek = ref(getStartOfWeek(today));
 
-function getStartOfWeek(date) {
-  const dayOfWeek = date.getDay();
-  const diff = date.getDate() - dayOfWeek;
-  return new Date(date.setDate(diff));
-}
+const startOfWeekDate = ref(startOfWeek(today, { weekStartsOn: 0 })); // Sunday start
 
 const weekDays = computed(() => {
   const days = [];
   for (let i = 0; i < 7; i++) {
-    const day = new Date(startOfWeek.value);
-    day.setDate(day.getDate() + i);
-
+    const day = addDays(startOfWeekDate.value, i);
     days.push({
-      date: String(day.getDate()).padStart(2, "0"),
-      day: day.toLocaleDateString("en-US", { weekday: "short" }).toUpperCase(),
+      date: format(day, "dd"),
+      day: format(day, "EEE").toUpperCase(),
+      fullDate: day,
     });
   }
   return days;
 });
 
 function prevWeek() {
-  startOfWeek.value.setDate(startOfWeek.value.getDate() - 7);
+  startOfWeekDate.value = subWeeks(startOfWeekDate.value, 1);
 }
 
 function nextWeek() {
-  startOfWeek.value.setDate(startOfWeek.value.getDate() + 7);
+  startOfWeekDate.value = addWeeks(startOfWeekDate.value, 1);
 }
 
-// Filter flights based on the active tab (Modify logic as needed)
+function isToday(fullDate) {
+  return isSameDay(fullDate, today);
+}
 </script>
