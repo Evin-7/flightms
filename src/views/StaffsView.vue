@@ -1,5 +1,5 @@
 <template>
   <div>
-    <span> staffs view </span>
+    <span> Staffs View </span>
   </div>
 </template>

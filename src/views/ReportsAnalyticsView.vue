@@ -1,5 +1,5 @@
 <template>
   <div>
-    <span> reports analytics </span>
+    <span> Reports Analytics </span>
   </div>
 </template>

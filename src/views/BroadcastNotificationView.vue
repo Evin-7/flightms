@@ -1,5 +1,5 @@
 <template>
   <div>
-    <span> broadcast notictauion view </span>
+    <span> Broadcast Notification </span>
   </div>
 </template>

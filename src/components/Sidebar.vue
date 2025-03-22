@@ -1,12 +1,13 @@
 <template>
   <div class="h-full p-1 lg:p-5">
-    <ul class="space-y-1">
+    <ul class="space-y-1 overflow-y-auto">
       <li v-for="link in links" :key="link.path">
         <router-link
           :to="link.path"
-          class="flex items-center md:w-[90%] lg:w-[90%] space-x-4 lg:px-[10px] px-[2px] rounded-[12px] transition lg:py-3 py-1"
+          class="flex items-center md:w-[80%] lg:w-[90%] space-x-4 lg:px-[10px] px-[4px] rounded-[12px] transition lg:py-3 py-1"
           :class="{
-            'bg-[#250c39] md:w-[90%] text-white': $route.path === link.path,
+            'bg-flightmsdarkpurple md:w-[70%] text-flightmswhite':
+              $route.path === link.path,
           }"
         >
           <img
@@ -15,10 +16,10 @@
               $route.path === link.path ? link.activeIcon : link.inactiveIcon
             "
             :alt="`${link.label} Icon`"
-            class="w-5 h-5"
+            class="md:w-3 md:h-3 lg:w-5 lg:h-5"
           />
           <span
-            class="text-[12px]"
+            class="sm:text-[9px] lg:text-[12px]"
             :class="{ 'text-flightmsdarkpurple': $route.path !== link.path }"
           >
             {{ link.label }}
@@ -27,9 +28,13 @@
       </li>
     </ul>
     <div class="flex absolute bottom-0 left-0 right-0 justify-center mb-4">
-      <div class="bg-gray-200 rounded-[25px] p-2 flex items-center space-x-2">
+      <div
+        class="bg-flightmslightgray rounded-[25px] p-2 flex items-center space-x-2"
+      >
         <img :src="headPhonesBlack" class="h-5 w-5" alt="Headphones Icon" />
-        <span class="text-[12px] text-flightmsdarkpurple">Contact Support</span>
+        <span class="sm:text-[9px] lg:text-[12px] text-flightmsdarkpurple"
+          >Contact Support</span
+        >
       </div>
     </div>
   </div>

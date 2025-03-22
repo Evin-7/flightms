@@ -15,7 +15,7 @@
         <Sidebar />
       </div>
 
-      <div class="w-full ml-[18%] bg-gray-100 h-[100vh] flex flex-col">
+      <div class="w-full ml-[18%] bg-flightmslightgray h-[100vh] flex flex-col">
         <Navbar />
         <div class="flex-1 overflow-y-auto pt-[80px]">
           <router-view />
@@ -25,7 +25,9 @@
   </div>
   <div v-else class="z-20 font-poppins">
     <Navbar />
-    <div class="overflow-y-auto bg-gray-100 h-[calc(100vh-60px)] pt-[60px]">
+    <div
+      class="overflow-y-auto bg-flightmslightgray h-[calc(100vh-60px)] pt-[60px]"
+    >
       <router-view />
     </div>
   </div>

@@ -10,19 +10,21 @@
     >
       <!-- Icon in Rounded Transparent Div -->
       <div
-        class="absolute top-4 left-4 bg-white bg-opacity-20 rounded-[8px] p-2"
+        class="absolute top-4 left-4 bg-flightmswhite bg-opacity-20 rounded-[8px] p-2"
       >
         <img :src="card.icon" alt="icon" class="w-6 h-6 object-contain" />
       </div>
 
       <!-- Percentage in Rounded Transparent Div -->
       <div
-        class="absolute top-6 right-4 bg-white bg-opacity-20 rounded-[8px] px-3 py-1"
+        class="absolute top-6 right-4 bg-flightmswhite bg-opacity-20 rounded-[8px] px-3 py-1"
       >
         <p
-          class="text-sm font-semibold"
+          class="text-sm font-normal"
           :class="
-            card.percentage.startsWith('+') ? 'text-green-500' : 'text-red-500'
+            card.percentage.startsWith('+')
+              ? 'text-flightmsdarkpurple'
+              : 'text-flightmsred'
           "
         >
           {{ card.percentage }}
@@ -31,8 +33,10 @@
 
       <!-- Title & Value in Bottom-Left -->
       <div class="absolute bottom-2 left-4 text-left">
-        <p class="text-lg font-regular pb-[5px] text-white">{{ card.title }}</p>
-        <p class="text-2xl font-medium text-white">{{ card.value }}</p>
+        <p class="text-lg font-regular pb-[5px] text-flightmswhite">
+          {{ card.title }}
+        </p>
+        <p class="text-2xl font-medium text-flightmswhite">{{ card.value }}</p>
       </div>
 
       <!-- Circle Designs -->

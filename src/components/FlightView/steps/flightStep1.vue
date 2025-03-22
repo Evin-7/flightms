@@ -16,7 +16,7 @@
   </div>
 
   <div class="flex flex-wrap justify-center pt-[20px] flex-row">
-    <div class="w-[96%] bg-white rounded-xl flex items-center p-[5px]">
+    <div class="w-[96%] bg-flightmswhite rounded-xl flex items-center p-[5px]">
       <div class="flex flex-wrap justify-center flex-row w-full">
         <div
           v-for="(step, index) in steps"
@@ -26,8 +26,8 @@
           <div
             :class="[
               index === activeStep
-                ? 'bg-flightmspurple text-white'
-                : 'bg-gray-300 text-flightmsdarkpurple opacity-50',
+                ? 'bg-flightmspurple text-flightmswhite'
+                : 'bg-flightmsgray text-flightmsdarkpurple opacity-50',
               'rounded-[5px] w-[30px] h-[30px] flex items-center justify-center text-sm font-medium',
             ]"
           >
@@ -37,7 +37,7 @@
             :class="
               index === activeStep
                 ? 'text-flightmspurple'
-                : 'text-gray-400 opacity-50'
+                : 'text-flightmsgray opacity-50'
             "
             class="flex items-center gap-1"
           >
@@ -55,7 +55,7 @@
   </div>
 
   <div class="flex flex-wrap justify-center pt-[20px] flex-row">
-    <div class="w-[96%] bg-white rounded-xl p-5">
+    <div class="w-[96%] bg-flightmswhite rounded-xl p-5">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div class="flex flex-col" v-for="field in fields" :key="field.model">
           <label class="text-flightmsdarkpurple text-[14px] font-normal mb-1"
@@ -64,13 +64,14 @@
           <component
             :is="field.type === 'text' ? 'input' : 'select'"
             :placeholder="field.placeholder"
-            class="border border-gray-300 rounded-md p-2 h-[55px] w-full focus:outline-flightmspurple"
+            class="border border-gray-300 rounded-md text-flightmsgray text-[14px] p-2 h-[55px] w-full focus:outline-flightmspurple"
             :value="formValues[field.model]"
             @input="(event) => (formValues[field.model] = event.target.value)"
           >
             <option v-if="field.type === 'select'" value="">
               {{ field.placeholder }}
             </option>
+
             <option
               v-for="option in field.options"
               :key="option"
@@ -89,7 +90,7 @@
 
   <div
     v-if="errorMessage"
-    class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-red-500 text-white p-3 rounded-md shadow-lg transition-opacity duration-300"
+    class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-flightmsred text-flightmswhite p-3 rounded-md shadow-lg transition-opacity duration-300"
     :class="{ 'opacity-0': !errorMessage }"
   >
     {{ errorMessage }}
@@ -98,13 +99,13 @@
   <div class="flex flex-wrap justify-center pt-[20px] flex-row">
     <div class="w-[96%] flex items-center p-[5px] justify-start space-x-4">
       <button
-        class="bg-flightmsdarkpurple text-[13px] rounded-xl text-white px-4 py-2 w-[150px] h-[50px] font-medium hover:bg-flightmspurple"
+        class="bg-flightmsdarkpurple text-[13px] rounded-xl text-flightmswhite px-4 py-2 w-[150px] h-[50px] font-medium hover:bg-flightmspurple"
         @click="validateAndSubmit('continue')"
       >
         Save & Continue
       </button>
       <button
-        class="bg-white border text-[13px] rounded-xl border-flightmsdarkpurple w-[150px] h-[50px] text-flightmsdarkpurple px-4 py-2 font-medium hover:bg-gray-400"
+        class="bg-flightmswhite border text-[13px] rounded-xl border-flightmsdarkpurple w-[150px] h-[50px] text-flightmsdarkpurple px-4 py-2 font-medium hover:bg-flightmsgray"
         @click="validateAndSubmit('exit')"
       >
         Save & Exit
@@ -133,42 +134,42 @@ export default {
           model: "flightNumber",
           label: "Flight Number",
           type: "text",
-          placeholder: "Enter Flight Number",
+          placeholder: "",
         },
         {
           model: "flightType",
           label: "Flight Type",
           type: "select",
           options: ["Commercial", "Cargo"],
-          placeholder: "Select Flight Type",
+          placeholder: "Select",
         },
         {
           model: "departureAirport",
           label: "Departure Airport",
           type: "select",
           options: ["JFK", "LAX", "ORD"],
-          placeholder: "Select Departure Airport",
+          placeholder: "Select",
         },
         {
           model: "destinationAirport",
           label: "Destination Airport",
           type: "select",
           options: ["LHR", "DXB", "SIN"],
-          placeholder: "Select Destination Airport",
+          placeholder: "Select",
         },
         {
           model: "flightRoute",
           label: "Flight Route",
           type: "select",
           options: ["Direct", "One Stop", "Multi-Stop"],
-          placeholder: "Select Flight Route",
+          placeholder: "Select ",
         },
         {
           model: "flightDestination",
           label: "Flight Destination",
           type: "select",
           options: ["Europe", "Asia", "North America"],
-          placeholder: "Select Flight Destination",
+          placeholder: "Select",
         },
       ],
       steps: [

@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 lg:p-4 bg-white rounded-xl">
+  <div class="p-2 lg:p-4 bg-flightmswhite rounded-xl">
     <div class="flex items-center flex-wrap justify-between mb-4">
       <span
         class="text-sm lg:text-xl text-left font-medium text-flightmsdarkpurple"
@@ -29,7 +29,9 @@
         </div>
 
         <div class="flex items-center space-x-2">
-          <div class="w-3 h-3 bg-white border border-black rounded-full"></div>
+          <div
+            class="w-3 h-3 bg-flightmswhite border border-black rounded-full"
+          ></div>
           <p class="text-sm text-flightmsdarkpurple">
             Parked
             <span class="font-semibold text-lg">{{ parked }}</span>

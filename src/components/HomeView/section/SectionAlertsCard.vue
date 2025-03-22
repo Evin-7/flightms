@@ -1,6 +1,6 @@
 <template>
   <div
-    class="p-4 bg-white text-flightmsdarkpurple rounded-xl h-auto lg:h-[300px]"
+    class="p-4 bg-flightmswhite text-flightmsdarkpurple rounded-xl h-auto lg:h-[300px]"
   >
     <div class="flex items-center justify-between mb-4">
       <span

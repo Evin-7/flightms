@@ -1,5 +1,5 @@
 <template>
   <div>
-    <span>payment refund view</span>
+    <span>Payment Refund </span>
   </div>
 </template>

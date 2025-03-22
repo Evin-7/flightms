@@ -15,7 +15,7 @@
   </div>
 
   <div class="flex flex-wrap justify-center pt-[20px] flex-row">
-    <div class="w-[96%] bg-white rounded-xl flex items-center p-[5px]">
+    <div class="w-[96%] bg-flightmswhite rounded-xl flex items-center p-[5px]">
       <div class="flex flex-wrap justify-center flex-row w-full">
         <div
           v-for="(step, index) in steps"
@@ -25,8 +25,8 @@
           <div
             :class="[
               index === activeStep
-                ? 'bg-flightmspurple text-white'
-                : 'bg-gray-300 text-flightmsdarkpurple opacity-50',
+                ? 'bg-flightmspurple text-flightmswhite'
+                : 'bg-flightmsgray text-flightmsdarkpurple opacity-50',
               'rounded-[5px] w-[30px] h-[30px] flex items-center justify-center text-sm font-medium',
             ]"
           >
@@ -36,7 +36,7 @@
             :class="
               index === activeStep
                 ? 'text-flightmspurple'
-                : 'text-gray-400 opacity-50'
+                : 'text-flightmsgray opacity-50'
             "
             class="flex items-center gap-1"
           >
@@ -54,7 +54,7 @@
   </div>
 
   <div class="flex flex-wrap justify-center pt-[20px] flex-row">
-    <div class="w-[96%] bg-white rounded-xl p-5">
+    <div class="w-[96%] bg-flightmswhite rounded-xl p-5">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div class="flex flex-col" v-for="field in fields" :key="field.model">
           <label class="text-flightmsdarkpurple text-[14px] font-normal mb-1"
@@ -63,18 +63,18 @@
           <input
             v-if="field.type === 'date'"
             type="date"
-            class="border border-gray-300 rounded-md p-2 h-[55px] w-full focus:outline-flightmspurple"
+            class="border border-gray-300 text-flightmsgray text-[14px] rounded-md p-2 h-[55px] w-full focus:outline-flightmspurple"
             v-model="formValues[field.model]"
           />
           <input
             v-else-if="field.type === 'time'"
             type="time"
-            class="border border-gray-300 rounded-md p-2 h-[55px] w-full focus:outline-flightmspurple"
+            class="border border-gray-300 rounded-md text-flightmsgray text-[14px] p-2 h-[55px] w-full focus:outline-flightmspurple"
             v-model="formValues[field.model]"
           />
           <select
             v-else-if="field.type === 'select'"
-            class="border border-gray-300 rounded-md p-2 h-[55px] w-full focus:outline-flightmspurple"
+            class="border border-gray-300 rounded-md p-2 text-flightmsgray text-[14px] h-[55px] w-full focus:outline-flightmspurple"
             v-model="formValues[field.model]"
           >
             <option value="">Select {{ field.label }}</option>
@@ -96,7 +96,7 @@
 
   <!-- Recurrence Section -->
   <div class="flex flex-wrap justify-center pt-[20px] flex-row">
-    <div class="w-[96%] bg-white rounded-xl p-5">
+    <div class="w-[96%] bg-flightmswhite rounded-xl p-5">
       <div
         class="text-sm lg:text-xl text-left font-medium text-flightmsdarkpurple"
       >
@@ -105,12 +105,12 @@
 
       <div class="flex items-center justify-start mt-3 space-x-2">
         <!-- Repeat Every Number Selection -->
-        <div class="flex flex-col w-[15%]">
+        <div class="flex flex-col w-[100%] md:w-[15%]">
           <label class="text-flightmsdarkpurple text-[14px] font-normal mb-1"
             >Repeat Every *</label
           >
           <select
-            class="border border-gray-300 h-[55px] rounded-md p-2 w-full focus:outline-flightmspurple"
+            class="border border-gray-300 text-flightmsgray text-[14px] h-[55px] rounded-md p-2 w-full focus:outline-flightmspurple"
             v-model="formValues.repeatEvery"
           >
             <option value="">Select Number</option>
@@ -122,12 +122,12 @@
         </div>
 
         <!-- Time Unit Selection -->
-        <div class="flex flex-col w-[15%] pt-[23px]">
+        <div class="flex flex-col w-[100%] md:w-[15%] pt-[23px]">
           <select
-            class="border border-gray-300 rounded-md p-2 h-[55px] w-full focus:outline-flightmspurple"
+            class="border border-gray-300 text-flightmsgray text-[14px] rounded-md p-2 h-[55px] w-full focus:outline-flightmspurple"
             v-model="formValues.timeUnit"
           >
-            <option value="">Select Unit</option>
+            <option value="">Week</option>
             <option
               v-for="unit in ['Day', 'Week', 'Month', 'Year']"
               :key="unit"
@@ -157,8 +157,8 @@
             :class="[
               'flex flex-col items-center justify-center rounded-md w-[120px] h-[60px] p-2',
               isToday(day.fullDate)
-                ? 'bg-[#5E56C7] text-white'
-                : 'bg-white border border-gray-300',
+                ? 'bg-flightmspurple text-flightmswhite'
+                : 'bg-flightmswhite border border-gray-300',
             ]"
           >
             <span class="text-sm font-light">{{ day.day }}</span>
@@ -168,12 +168,12 @@
 
       <div class="flex items-center justify-start mt-5 space-x-2">
         <!-- Ends On Selection -->
-        <div class="flex flex-col w-[31%]">
+        <div class="flex flex-col w-[100%] md:w-[31%]">
           <label class="text-flightmsdarkpurple text-[14px] font-normal mb-1"
             >Ends On *</label
           >
           <select
-            class="border border-gray-300 h-[55px] rounded-md p-2 w-full focus:outline-flightmspurple"
+            class="border border-gray-300 text-flightmsgray text-[14px] h-[55px] rounded-md p-2 w-full focus:outline-flightmspurple"
             v-model="formValues.endsOn"
           >
             <option value="">Select Option</option>
@@ -196,7 +196,7 @@
 
   <div
     v-if="errorMessage"
-    class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-red-500 text-white p-3 rounded-md shadow-lg transition-opacity duration-300"
+    class="fixed bottom-4 left-1/2 transform -translate-x-1/2 bg-flightmsred text-flightmswhite p-3 rounded-md shadow-lg transition-opacity duration-300"
     :class="{ 'opacity-0': !errorMessage }"
   >
     {{ errorMessage }}
@@ -205,13 +205,13 @@
   <div class="flex flex-wrap pb-[40px] justify-center pt-[20px] flex-row">
     <div class="w-[96%] flex items-center p-[5px] justify-start space-x-4">
       <button
-        class="bg-flightmsdarkpurple text-[13px] rounded-xl text-white px-4 py-2 w-[150px] h-[50px] font-medium hover:bg-flightmspurple"
+        class="bg-flightmsdarkpurple text-[13px] rounded-xl text-flightmswhite px-4 py-2 w-[150px] h-[50px] font-medium hover:bg-flightmspurple"
         @click="validateAndSubmit('continue')"
       >
         Save & Continue
       </button>
       <button
-        class="bg-white border text-[13px] rounded-xl border-flightmsdarkpurple w-[150px] h-[50px] text-flightmsdarkpurple px-4 py-2 font-medium hover:bg-gray-400"
+        class="bg-flightmswhite border text-[13px] rounded-xl border-flightmsdarkpurple w-[150px] h-[50px] text-flightmsdarkpurple px-4 py-2 font-medium hover:bg-flightmsgray"
         @click="validateAndSubmit('exit')"
       >
         Save & Exit

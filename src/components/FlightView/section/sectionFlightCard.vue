@@ -2,7 +2,7 @@
   <div
     v-for="flight in mappedFlights"
     :key="flight.id"
-    class="bg-white pb-[20px] rounded-lg relative mb-4"
+    class="bg-flightmswhite pb-[20px] rounded-lg relative mb-4"
   >
     <div class="flex flex-wrap justify-center flex-row pt-[20px] pb-[20px]">
       <div class="md:w-[94%] flex items-center">
@@ -30,25 +30,25 @@
         >
         <div
           v-if="showTooltip === flight.id"
-          class="absolute right-0 top-full mt-2 bg-white border rounded-[12px] p-2 w-[140px] z-50"
+          class="absolute right-0 top-full mt-2 bg-flightmswhite border rounded-[12px] p-2 w-[140px] z-50"
         >
           <button
-            class="block w-full text-[13px] text-left py-1 pl-[10px] hover:bg-gray-100"
+            class="block w-full text-[13px] text-left py-1 pl-[10px] hover:bg-flightmslightgray"
           >
             Edit Flight
           </button>
           <button
-            class="block w-full text-[13px] text-left py-1 pl-[10px] hover:bg-gray-100"
+            class="block w-full text-[13px] text-left py-1 pl-[10px] hover:bg-flightmslightgray"
           >
             Assign Staff
           </button>
           <button
-            class="block w-full text-[13px] text-left py-1 pl-[10px] hover:bg-gray-100"
+            class="block w-full text-[13px] text-left py-1 pl-[10px] hover:bg-flightmslightgray"
           >
             Manage Booking
           </button>
           <button
-            class="block w-full text-[13px] text-left py-1 pl-[10px] hover:bg-gray-100"
+            class="block w-full text-[13px] text-left py-1 pl-[10px] hover:bg-flightmslightgray"
           >
             Cancel Flight
           </button>
@@ -64,7 +64,7 @@
           class="w-[100%] md:w-[85%] flex-row flex flex-wrap rounded-[12px] p-4 h-auto lg:h-[110px]"
           :class="
             flight.status === 'Cancelled'
-              ? 'bg-red-100'
+              ? 'bg-flightmslightred'
               : 'bg-flightmslightgray'
           "
         >
@@ -89,7 +89,7 @@
                 <div class="text-black text-[8px] mx-2">-------------</div>
               </div>
               <div
-                class="bg-white text-[8px] lg:text-sm rounded-md p-2 h-[35px] flex justify-center items-center mx-2"
+                class="bg-flightmswhite text-[8px] lg:text-sm rounded-md p-2 h-[35px] flex justify-center items-center mx-2"
               >
                 {{ flight.duration }}
               </div>
@@ -119,7 +119,7 @@
           <div
             :class="
               flight.status === 'Cancelled'
-                ? 'bg-red-100'
+                ? 'bg-flightmslightred'
                 : 'bg-flightmslightgray'
             "
             class="rounded-[12px] h-auto p-[20px] md:pt-[0px] md:h-[110px] w-[100%] md:w-[70%] flex flex-col justify-center items-center"

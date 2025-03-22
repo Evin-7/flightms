@@ -1,5 +1,5 @@
 <template>
-  <div class="p-4 bg-white rounded-xl h-auto lg:h-[300px]">
+  <div class="p-4 bg-flightmswhite rounded-xl h-auto md:h-[300px] lg:h-[300px]">
     <!-- Header Section -->
     <div class="flex items-center justify-between mb-4">
       <span
@@ -11,7 +11,7 @@
       <div class="relative">
         <select
           v-model="selectedPeriod"
-          class="appearance-none bg-white text-flightmsdarkpurple py-1 px-3 pr-8 rounded-md border border-[#D3D3D3] cursor-pointer focus:outline-none focus:ring-0"
+          class="appearance-none bg-flightmswhite text-flightmsdarkpurple py-1 px-3 pr-8 rounded-md border border-[#D3D3D3] cursor-pointer focus:outline-none focus:ring-0"
           @change="handleFilterChange"
         >
           <option value="today">Today</option>

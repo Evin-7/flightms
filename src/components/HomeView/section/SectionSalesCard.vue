@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 lg:p-4 h-auto lg:h-[430px] bg-white rounded-xl">
+  <div class="p-2 lg:p-4 h-auto lg:h-[430px] bg-flightmswhite rounded-xl">
     <div class="flex items-center justify-between mb-4">
       <span
         class="text-sm lg:text-xl text-left font-medium text-flightmsdarkpurple"
@@ -10,7 +10,7 @@
       <div class="relative">
         <select
           v-model="selectedOption"
-          class="appearance-none bg-white text-flightmsdarkpurple py-1 px-3 pr-8 rounded-md border border-[#D3D3D3] cursor-pointer focus:outline-none focus:ring-0"
+          class="appearance-none bg-flightmswhite text-flightmsdarkpurple py-1 px-3 pr-8 rounded-md border border-[#D3D3D3] cursor-pointer focus:outline-none focus:ring-0"
           @change="updateChartData"
         >
           <option value="lastWeek">Last Week</option>

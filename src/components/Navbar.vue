@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="w-full relative z-50 bg-white shadow-md text-flightmspurple px-4 py-3 md:fixed"
+    class="w-full relative z-50 bg-flightmswhite shadow-md text-flightmspurple px-4 py-3 md:fixed"
   >
     <div class="md:hidden flex flex-col w-full">
       <div class="flex items-center justify-between w-full">
@@ -25,10 +25,12 @@
       <div class="flex flex-col md:hidden w-full pt-3">
         <div class="w-full">
           <span class="font-medium text-xl text-flightmsdarkpurple">
-            Dashboard
+            {{ pageTitle }}
           </span>
         </div>
-        <div class="flex w-full mt-2 bg-gray-200 rounded-[25px] px-3 py-2">
+        <div
+          class="flex w-full mt-2 bg-flightmslightgray rounded-[25px] px-3 py-2"
+        >
           <img
             :src="searchIcon"
             alt="Search Icon"
@@ -37,12 +39,12 @@
           <input
             type="text"
             placeholder="Search..."
-            class="w-full bg-gray-200 outline-none pl-2"
+            class="w-full bg-flightmslightgray outline-none pl-2"
           />
         </div>
 
         <div class="flex items-center justify-start w-full mt-2 space-x-2">
-          <div class="bg-gray-200 p-2 rounded-full flex items-center">
+          <div class="bg-flightmslightgray p-2 rounded-full flex items-center">
             <img :src="bellBlack" alt="Bell Icon" class="w-5 h-5" />
           </div>
           <div class="pl-[10px]">
@@ -53,7 +55,7 @@
             />
           </div>
           <div class="flex flex-col leading-tight">
-            <span class="font-medium text-flightmsdarkpurple">Fernando J</span>
+            <span class="font-medium text-flightmsdarkpurple"> J</span>
             <span class="text-sm font-light text-gray-500">Admin</span>
           </div>
           <div class="flex leading-tight pr-[10px]">
@@ -71,11 +73,11 @@
       <div class="flex h-[50px] items-center space-x-4">
         <div class="w-[20%]">
           <span class="font-medium text-2xl text-flightmsdarkpurple">
-            Dashboard
+            {{ pageTitle }}
           </span>
         </div>
         <div
-          class="flex flex-grow-1 md:w-[25%] lg:w-[25%] bg-gray-200 rounded-[25px] px-3 py-2"
+          class="flex flex-grow-1 md:w-[25%] lg:w-[25%] bg-flightmslightgray rounded-[25px] px-3 py-2"
         >
           <img
             :src="searchIcon"
@@ -85,12 +87,12 @@
           <input
             type="text"
             placeholder="Search..."
-            class="w-full bg-gray-200 outline-none pl-2"
+            class="w-full bg-flightmslightgray outline-none pl-2"
           />
         </div>
 
         <div class="flex items-center w-[33%] justify-end space-x-2">
-          <div class="bg-gray-200 p-2 rounded-full flex items-center">
+          <div class="bg-flightmslightgray p-2 rounded-full flex items-center">
             <img :src="bellBlack" alt="Bell Icon" class="w-5 h-5" />
           </div>
           <div class="pl-[10px]">
@@ -123,7 +125,7 @@
         v-for="link in links"
         :key="link.path"
         :to="link.path"
-        class="flex items-center justify-start space-x-2 py-2 px-4 rounded bg-[#250c39] text-white"
+        class="flex items-center justify-start space-x-2 py-2 px-4 rounded bg-flightmsdarkpurple text-flightmswhite"
         @click="closeMenu"
       >
         <img
@@ -166,7 +168,8 @@ import megaPhoneWhite from "../assets/icons/megaPhoneWhite.png";
 import megaPhoneBlack from "../assets/icons/megaPhoneBlack.png";
 import dollarWhite from "../assets/icons/dollarWhite.png";
 import dollarBlack from "../assets/icons/dollarBlack.png";
-
+import { useRoute } from "vue-router";
+import { computed } from "vue";
 const isOpen = ref(false);
 
 const toggleMenu = () => {
@@ -242,4 +245,22 @@ const links = [
     inactiveIcon: dollarBlack,
   },
 ];
+const route = useRoute();
+const pageTitle = computed(() => {
+  const routeTitles = {
+    "/": "Dashboard",
+    "/flights": "Flights",
+    "/add-flight/step-1": "Flights",
+    "/add-flight/step-2": "Flights",
+    "/bookings": "Bookings",
+    "/staffs": "Staffs",
+    "/helpdesk": "Help Desk",
+    "/manage-aircrafts": "Manage Aircrafts",
+    "/reports-analytics": "Reports & Analytics",
+    "/broadcast-notifications": "Broadcast Notifications",
+    "/payment-refunds": "Payment & Refunds",
+  };
+
+  return routeTitles[route.path] || "Page";
+});
 </script>

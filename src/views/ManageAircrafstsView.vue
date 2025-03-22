@@ -1,5 +1,5 @@
 <template>
   <div>
-    <span> manage manag aircrafts view </span>
+    <span> Manage Aircrafts </span>
   </div>
 </template>

@@ -22,7 +22,7 @@
         <div class="flex justify-end">
           <button
             @click="$router.push('/add-flight/step-1')"
-            class="bg-flightmsdarkpurple w-full md:w-[180px] lg:w-[170px] text-white py-2 px-4 rounded-lg shadow-md hover:bg-flightmspurple transition-all"
+            class="bg-flightmsdarkpurple w-full md:w-[180px] lg:w-[170px] text-flightmswhite py-2 px-4 rounded-lg shadow-md hover:bg-flightmspurple transition-all"
           >
             <span class="text-sm"> + Add New Flight </span>
           </button>
@@ -33,7 +33,7 @@
     <div class="flex flex-wrap p-4 flex-row justify-start">
       <div class="w-[100%] md:w-[32%]">
         <div
-          class="flex w-[100%] md:w-[40%] items-center space-x-2 bg-white/50 p-2 rounded-md"
+          class="flex w-[100%] md:w-[40%] items-center space-x-2 bg-flightmswhite/50 p-2 rounded-md"
         >
           <span class="text-flightmspurple">{{ currentDate }}</span>
           <img
@@ -46,14 +46,14 @@
       <div class="w-[68%] pt-4 lg:pt-0 text-right">
         <div class="flex justify-end items-center">
           <div
-            class="w-[40px] bg-white font-normal rounded-md text-center text-[24px] text-black cursor-pointer"
+            class="w-[40px] bg-flightmswhite font-normal rounded-md text-center text-[24px] text-black cursor-pointer"
             @click="prevWeek"
           >
             ‹
           </div>
-          <div class="w-[20px] bg-white"></div>
+          <div class="w-[20px] bg-flightmswhite"></div>
           <div
-            class="w-[40px] bg-white font-normal rounded-md text-[24px] text-center text-black cursor-pointer"
+            class="w-[40px] bg-flightmswhite font-normal rounded-md text-[24px] text-center text-black cursor-pointer"
             @click="nextWeek"
           >
             ›
@@ -69,7 +69,9 @@
           :key="index"
           :class="[
             'flex flex-col items-center justify-center rounded-md w-[140px] h-[90px] p-2',
-            isToday(day.fullDate) ? 'bg-[#5E56C7] text-white' : 'bg-white',
+            isToday(day.fullDate)
+              ? 'bg-flightmspurple text-flightmswhite'
+              : 'bg-flightmswhite',
           ]"
         >
           <span class="text-lg font-normal">{{ day.date }}</span>
@@ -80,7 +82,7 @@
   </div>
   <div>
     <div class="flex flex-row flex-wrap justify-center">
-      <div class="w-[96%]">
+      <div class="w-[97%]">
         <sectionFlightCard :flights="flightDetails" />
       </div>
     </div>

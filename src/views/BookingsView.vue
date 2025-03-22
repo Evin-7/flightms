@@ -1,3 +1,3 @@
 <template>
-  <div>bookings vue</div>
+  <div>Bookings</div>
 </template>

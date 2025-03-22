@@ -1,5 +1,5 @@
 <template>
-  <div class="p-2 lg:p-4 bg-white rounded-xl">
+  <div class="p-2 lg:p-4 bg-flightmswhite rounded-xl">
     <div class="flex items-center flex-wrap justify-between mb-4">
       <span
         class="text-sm lg:text-xl text-left font-medium text-flightmsdarkpurple"
@@ -10,7 +10,7 @@
       <div class="relative">
         <select
           v-model="selectedStatus"
-          class="appearance-none bg-white text-flightmsdarkpurple py-1 px-3 pr-8 rounded-md border border-[#D3D3D3] cursor-pointer focus:outline-none focus:ring-0"
+          class="appearance-none bg-flightmswhite text-flightmsdarkpurple py-1 px-3 pr-8 rounded-md border border-[#D3D3D3] cursor-pointer focus:outline-none focus:ring-0"
         >
           <option value="all">All Flights</option>
           <option value="enroute">Enroute</option>
@@ -44,8 +44,8 @@
         'grid grid-cols-4   text-sm text-flightmsdarkpurple py-2 rounded-md mb-1',
         selectedStatus !== 'all' &&
         flight.status.toLowerCase().includes(selectedStatus)
-          ? 'bg-red-100'
-          : 'bg-gray-100',
+          ? 'bg-flightmslightred'
+          : 'bg-flightmslightgray',
       ]"
     >
       <span class="pl-[10px] flex items-center">

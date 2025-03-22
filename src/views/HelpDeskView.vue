@@ -1,5 +1,5 @@
 <template>
   <div>
-    <span> help view </span>
+    <span> Help Desk </span>
   </div>
 </template>
