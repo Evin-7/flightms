@@ -64,7 +64,7 @@
           <component
             :is="field.type === 'text' ? 'input' : 'select'"
             :placeholder="field.placeholder"
-            class="border border-gray-300 rounded-md text-flightmsgray text-[14px] p-2 h-[55px] w-full focus:outline-flightmspurple"
+            class="border border-gray-300 rounded-[10px] text-flightmsgray text-[14px] p-2 h-[55px] w-full focus:outline-flightmspurple"
             :value="formValues[field.model]"
             @input="(event) => (formValues[field.model] = event.target.value)"
           >

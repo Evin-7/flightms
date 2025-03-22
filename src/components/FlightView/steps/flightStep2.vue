@@ -63,18 +63,18 @@
           <input
             v-if="field.type === 'date'"
             type="date"
-            class="border border-gray-300 text-flightmsgray text-[14px] rounded-md p-2 h-[55px] w-full focus:outline-flightmspurple"
+            class="border border-gray-300 text-flightmsgray text-[14px] rounded-[10px] p-2 h-[55px] w-full focus:outline-flightmspurple"
             v-model="formValues[field.model]"
           />
           <input
             v-else-if="field.type === 'time'"
             type="time"
-            class="border border-gray-300 rounded-md text-flightmsgray text-[14px] p-2 h-[55px] w-full focus:outline-flightmspurple"
+            class="border border-gray-300 rounded-[10px] text-flightmsgray text-[14px] p-2 h-[55px] w-full focus:outline-flightmspurple"
             v-model="formValues[field.model]"
           />
           <select
             v-else-if="field.type === 'select'"
-            class="border border-gray-300 rounded-md p-2 text-flightmsgray text-[14px] h-[55px] w-full focus:outline-flightmspurple"
+            class="border border-gray-300 rounded-[10px] p-2 text-flightmsgray text-[14px] h-[55px] w-full focus:outline-flightmspurple"
             v-model="formValues[field.model]"
           >
             <option value="">Select {{ field.label }}</option>
@@ -110,7 +110,7 @@
             >Repeat Every *</label
           >
           <select
-            class="border border-gray-300 text-flightmsgray text-[14px] h-[55px] rounded-md p-2 w-full focus:outline-flightmspurple"
+            class="border border-gray-300 text-flightmsgray text-[14px] h-[55px] rounded-[10px] p-2 w-full focus:outline-flightmspurple"
             v-model="formValues.repeatEvery"
           >
             <option value="">Select Number</option>
@@ -124,7 +124,7 @@
         <!-- Time Unit Selection -->
         <div class="flex flex-col w-[100%] md:w-[15%] pt-[23px]">
           <select
-            class="border border-gray-300 text-flightmsgray text-[14px] rounded-md p-2 h-[55px] w-full focus:outline-flightmspurple"
+            class="border border-gray-300 text-flightmsgray text-[14px] rounded-[10px] p-2 h-[55px] w-full focus:outline-flightmspurple"
             v-model="formValues.timeUnit"
           >
             <option value="">Week</option>
@@ -155,7 +155,7 @@
             v-for="(day, index) in weekDays"
             :key="index"
             :class="[
-              'flex flex-col items-center justify-center rounded-md w-[120px] h-[60px] p-2',
+              'flex flex-col items-center justify-center rounded-[10px] w-[120px] h-[60px] p-2',
               isToday(day.fullDate)
                 ? 'bg-flightmspurple text-flightmswhite'
                 : 'bg-flightmswhite border border-gray-300',
@@ -173,7 +173,7 @@
             >Ends On *</label
           >
           <select
-            class="border border-gray-300 text-flightmsgray text-[14px] h-[55px] rounded-md p-2 w-full focus:outline-flightmspurple"
+            class="border border-gray-300 text-flightmsgray text-[14px] h-[55px] rounded-[10px] p-2 w-full focus:outline-flightmspurple"
             v-model="formValues.endsOn"
           >
             <option value="">Select Option</option>
